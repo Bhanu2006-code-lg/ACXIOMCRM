@@ -1,27 +1,39 @@
-## .NET
+# Build outputs
 bin/
 obj/
+
+# Visual Studio
+.vs/
 *.user
 *.suo
-.vs/
+*.userosscache
+*.sln.docstates
 
-## SQLite DB files (don't push database)
+# SQLite database files
 *.db
 *.db-shm
 *.db-wal
 
-## Logs & temp files
+# Logs and temp files
 *.log
+logs/
 *.txt
 !README.txt
 
-## Secrets
+# Secrets / environment
 appsettings.Development.json
+appsettings.Production.json
 secrets.json
+.env
 
-## OS
+# OS files
 .DS_Store
 Thumbs.db
+desktop.ini
 
-## cookies
-cookies.txt
+# NuGet
+*.nupkg
+.nuget/
+
+# Publish output
+publish/
