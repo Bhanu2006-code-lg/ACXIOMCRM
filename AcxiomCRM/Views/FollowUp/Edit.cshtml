@@ -1,0 +1,164 @@
+@model AcxiomCRM.Models.FollowUp
+@{ ViewData["Title"] = "Edit Follow-Up"; }
+
+<div class="page-header">
+    <h4><i class="bi bi-pencil me-2"></i>Edit Follow-Up</h4>
+    <a asp-action="Index" class="btn btn-outline-secondary"><i class="bi bi-arrow-left me-1"></i>Back to List</a>
+</div>
+
+<div class="row">
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-body">
+                <form asp-action="Edit" method="post">
+                    <input type="hidden" asp-for="FollowUpId" />
+                    
+                    <div class="row g-3">
+                        <!-- Follow-Up Date -->
+                        <div class="col-md-6">
+                            <label asp-for="FollowUpDate" class="form-label required">Follow-Up Date</label>
+                            <input asp-for="FollowUpDate" type="date" class="form-control" />
+                            <span asp-validation-for="FollowUpDate" class="text-danger small"></span>
+                            <small class="text-muted">Cannot be earlier than today for planned follow-ups</small>
+                        </div>
+
+                        <!-- Follow-Up Type -->
+                        <div class="col-md-6">
+                            <label asp-for="FollowUpType" class="form-label required">Type</label>
+                            <select asp-for="FollowUpType" class="form-select" asp-items="ViewBag.Types">
+                                <option value="">-- Select Type --</option>
+                            </select>
+                            <span asp-validation-for="FollowUpType" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Subject -->
+                        <div class="col-12">
+                            <label asp-for="Subject" class="form-label required">Subject</label>
+                            <input asp-for="Subject" class="form-control" />
+                            <span asp-validation-for="Subject" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Status -->
+                        <div class="col-md-6">
+                            <label asp-for="Status" class="form-label required">Status</label>
+                            <select asp-for="Status" class="form-select" asp-items="ViewBag.Statuses"></select>
+                            <span asp-validation-for="Status" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Assigned To -->
+                        <div class="col-md-6">
+                            <label asp-for="AssignedTo" class="form-label">Assign To</label>
+                            <select asp-for="AssignedTo" class="form-select" asp-items="ViewBag.Users">
+                                <option value="">-- Select Sales Executive --</option>
+                            </select>
+                            <span asp-validation-for="AssignedTo" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Related To -->
+                        <div class="col-12">
+                            <label class="form-label">Related To</label>
+                            <small class="text-muted">(Select one)</small>
+                        </div>
+
+                        <!-- Customer -->
+                        <div class="col-md-4">
+                            <label asp-for="CustomerId" class="form-label">Customer</label>
+                            <select asp-for="CustomerId" class="form-select" asp-items="ViewBag.Customers">
+                                <option value="">-- Select Customer --</option>
+                            </select>
+                            <span asp-validation-for="CustomerId" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Lead -->
+                        <div class="col-md-4">
+                            <label asp-for="LeadId" class="form-label">Lead</label>
+                            <select asp-for="LeadId" class="form-select" asp-items="ViewBag.Leads">
+                                <option value="">-- Select Lead --</option>
+                            </select>
+                            <span asp-validation-for="LeadId" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Opportunity -->
+                        <div class="col-md-4">
+                            <label asp-for="OpportunityId" class="form-label">Opportunity</label>
+                            <select asp-for="OpportunityId" class="form-select" asp-items="ViewBag.Opportunities">
+                                <option value="">-- Select Opportunity --</option>
+                            </select>
+                            <span asp-validation-for="OpportunityId" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Remarks -->
+                        <div class="col-12">
+                            <label asp-for="Remarks" class="form-label">Remarks</label>
+                            <textarea asp-for="Remarks" class="form-control" rows="4"></textarea>
+                            <span asp-validation-for="Remarks" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Actions -->
+                        <div class="col-12 d-flex gap-2">
+                            <button type="submit" class="btn btn-primary px-4">
+                                <i class="bi bi-check-circle me-1"></i>Update Follow-Up
+                            </button>
+                            @if (Model.Status == "Planned")
+                            {
+                                <button type="button" class="btn btn-success" onclick="document.getElementById('completeForm').submit();">
+                                    <i class="bi bi-check-circle-fill me-1"></i>Mark Completed
+                                </button>
+                            }
+                            <a asp-action="Index" class="btn btn-outline-secondary">Cancel</a>
+                        </div>
+                    </div>
+                </form>
+
+                @if (Model.Status == "Planned")
+                {
+                    <form id="completeForm" asp-action="Complete" asp-route-id="@Model.FollowUpId" method="post" class="d-none"></form>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <div class="card">
+            <div class="card-body">
+                <h6 class="fw-bold mb-3">Follow-Up Info</h6>
+                <div class="small">
+                    <div class="mb-2">
+                        <strong>Created:</strong> @Model.CreatedDate.ToString("dd MMM yyyy HH:mm")
+                    </div>
+                    <div class="mb-2">
+                        <strong>Created By:</strong> @(Model.CreatedBy ?? "System")
+                    </div>
+                    @if (Model.FollowUpDate < DateTime.Today && Model.Status == "Planned")
+                    {
+                        <div class="alert alert-danger mt-3 mb-0">
+                            <strong>Overdue!</strong> This follow-up is past due.
+                        </div>
+                    }
+                    else if (Model.FollowUpDate.Date == DateTime.Today && Model.Status == "Planned")
+                    {
+                        <div class="alert alert-warning mt-3 mb-0">
+                            <strong>Due Today!</strong> This follow-up is scheduled for today.
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="card bg-light mt-3">
+            <div class="card-body">
+                <h6 class="fw-bold mb-3"><i class="bi bi-exclamation-triangle me-2"></i>Validation Rules</h6>
+                <ul class="small mb-0">
+                    <li class="mb-2">Follow-up date cannot be earlier than today for planned status</li>
+                    <li class="mb-2">Subject is required</li>
+                    <li class="mb-2">Type and status are mandatory</li>
+                    <li class="mb-2">Link to at least one related entity (Customer/Lead/Opportunity)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

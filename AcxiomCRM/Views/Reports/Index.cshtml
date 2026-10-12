@@ -1,0 +1,183 @@
+@{ ViewData["Title"] = "Reports"; }
+
+<div class="page-header">
+    <div>
+        <h4><i class="bi bi-bar-chart-line me-2"></i>Reports & Analytics</h4>
+        <span class="text-muted small">Business intelligence and data insights</span>
+    </div>
+</div>
+
+<div class="row g-3">
+    <!-- Customer Reports -->
+    <div class="col-md-6 col-lg-4">
+        <div class="card h-100 hover-shadow">
+            <div class="card-body">
+                <div class="d-flex align-items-start gap-3">
+                    <div class="rounded-circle bg-primary bg-opacity-10 p-3">
+                        <i class="bi bi-people-fill text-primary fs-3"></i>
+                    </div>
+                    <div class="flex-grow-1">
+                        <h5 class="card-title">Customer Report</h5>
+                        <p class="card-text text-muted small">View customer list with status, owner, and creation details</p>
+                        <a asp-action="Customers" class="btn btn-sm btn-outline-primary stretched-link">
+                            View Report <i class="bi bi-arrow-right ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lead Reports -->
+    <div class="col-md-6 col-lg-4">
+        <div class="card h-100 hover-shadow">
+            <div class="card-body">
+                <div class="d-flex align-items-start gap-3">
+                    <div class="rounded-circle bg-warning bg-opacity-10 p-3">
+                        <i class="bi bi-funnel-fill text-warning fs-3"></i>
+                    </div>
+                    <div class="flex-grow-1">
+                        <h5 class="card-title">Lead Report</h5>
+                        <p class="card-text text-muted small">Analyze leads by source, status, and conversion metrics</p>
+                        <a asp-action="Leads" class="btn btn-sm btn-outline-warning stretched-link">
+                            View Report <i class="bi bi-arrow-right ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Opportunity Reports -->
+    <div class="col-md-6 col-lg-4">
+        <div class="card h-100 hover-shadow">
+            <div class="card-body">
+                <div class="d-flex align-items-start gap-3">
+                    <div class="rounded-circle bg-success bg-opacity-10 p-3">
+                        <i class="bi bi-trophy-fill text-success fs-3"></i>
+                    </div>
+                    <div class="flex-grow-1">
+                        <h5 class="card-title">Opportunity Report</h5>
+                        <p class="card-text text-muted small">Track opportunities by stage, amount, and expected close date</p>
+                        <a asp-action="Opportunities" class="btn btn-sm btn-outline-success stretched-link">
+                            View Report <i class="bi bi-arrow-right ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pipeline Report -->
+    <div class="col-md-6 col-lg-4">
+        <div class="card h-100 hover-shadow">
+            <div class="card-body">
+                <div class="d-flex align-items-start gap-3">
+                    <div class="rounded-circle bg-info bg-opacity-10 p-3">
+                        <i class="bi bi-graph-up-arrow text-info fs-3"></i>
+                    </div>
+                    <div class="flex-grow-1">
+                        <h5 class="card-title">Sales Pipeline</h5>
+                        <p class="card-text text-muted small">Stage-wise and owner-wise pipeline analysis with weighted amounts</p>
+                        <a asp-action="Pipeline" class="btn btn-sm btn-outline-info stretched-link">
+                            View Report <i class="bi bi-arrow-right ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Follow-Up Report -->
+    <div class="col-md-6 col-lg-4">
+        <div class="card h-100 hover-shadow">
+            <div class="card-body">
+                <div class="d-flex align-items-start gap-3">
+                    <div class="rounded-circle bg-purple bg-opacity-10 p-3" style="background-color: rgba(123, 31, 162, 0.1) !important;">
+                        <i class="bi bi-calendar-check-fill fs-3" style="color: #7b1fa2;"></i>
+                    </div>
+                    <div class="flex-grow-1">
+                        <h5 class="card-title">Follow-Up Report</h5>
+                        <p class="card-text text-muted small">Track planned, completed, and overdue follow-up activities</p>
+                        <a asp-action="FollowUps" class="btn btn-sm btn-outline-secondary stretched-link" style="border-color: #7b1fa2; color: #7b1fa2;">
+                            View Report <i class="bi bi-arrow-right ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Conversion Report -->
+    <div class="col-md-6 col-lg-4">
+        <div class="card h-100 hover-shadow">
+            <div class="card-body">
+                <div class="d-flex align-items-start gap-3">
+                    <div class="rounded-circle bg-success bg-opacity-10 p-3">
+                        <i class="bi bi-arrow-repeat text-success fs-3"></i>
+                    </div>
+                    <div class="flex-grow-1">
+                        <h5 class="card-title">Conversion Report</h5>
+                        <p class="card-text text-muted small">Lead conversion rates and sales effectiveness metrics</p>
+                        <a asp-action="Conversion" class="btn btn-sm btn-outline-success stretched-link">
+                            View Report <i class="bi bi-arrow-right ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @if (User.IsInRole("Admin"))
+    {
+        <!-- User Activity Report -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100 hover-shadow">
+                <div class="card-body">
+                    <div class="d-flex align-items-start gap-3">
+                        <div class="rounded-circle bg-danger bg-opacity-10 p-3">
+                            <i class="bi bi-person-check-fill text-danger fs-3"></i>
+                        </div>
+                        <div class="flex-grow-1">
+                            <h5 class="card-title">User Activity</h5>
+                            <p class="card-text text-muted small">Monitor user activity and action counts</p>
+                            <a asp-action="UserActivity" class="btn btn-sm btn-outline-danger stretched-link">
+                                View Report <i class="bi bi-arrow-right ms-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Audit Report -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100 hover-shadow">
+                <div class="card-body">
+                    <div class="d-flex align-items-start gap-3">
+                        <div class="rounded-circle bg-dark bg-opacity-10 p-3">
+                            <i class="bi bi-shield-check text-dark fs-3"></i>
+                        </div>
+                        <div class="flex-grow-1">
+                            <h5 class="card-title">Audit Report</h5>
+                            <p class="card-text text-muted small">Security events, business actions, and audit trail</p>
+                            <a asp-action="Audit" class="btn btn-sm btn-outline-dark stretched-link">
+                                View Report <i class="bi bi-arrow-right ms-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<style>
+    .hover-shadow {
+        transition: all 0.3s ease;
+    }
+    .hover-shadow:hover {
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+        transform: translateY(-2px);
+    }
+</style>

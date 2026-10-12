@@ -1,0 +1,126 @@
+@model AcxiomCRM.Models.FollowUp
+@{ ViewData["Title"] = "Schedule Follow-Up"; }
+
+<div class="page-header">
+    <h4><i class="bi bi-calendar-plus me-2"></i>Schedule Follow-Up</h4>
+    <a asp-action="Index" class="btn btn-outline-secondary"><i class="bi bi-arrow-left me-1"></i>Back to List</a>
+</div>
+
+<div class="row">
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-body">
+                <form asp-action="Create" method="post">
+                    <div class="row g-3">
+                        <!-- Follow-Up Date -->
+                        <div class="col-md-6">
+                            <label asp-for="FollowUpDate" class="form-label required">Follow-Up Date</label>
+                            <input asp-for="FollowUpDate" type="date" class="form-control" />
+                            <span asp-validation-for="FollowUpDate" class="text-danger small"></span>
+                            <small class="text-muted">Cannot be earlier than today for planned follow-ups</small>
+                        </div>
+
+                        <!-- Follow-Up Type -->
+                        <div class="col-md-6">
+                            <label asp-for="FollowUpType" class="form-label required">Type</label>
+                            <select asp-for="FollowUpType" class="form-select" asp-items="ViewBag.Types">
+                                <option value="">-- Select Type --</option>
+                            </select>
+                            <span asp-validation-for="FollowUpType" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Subject -->
+                        <div class="col-12">
+                            <label asp-for="Subject" class="form-label required">Subject</label>
+                            <input asp-for="Subject" class="form-control" placeholder="e.g., Product Demo Follow-Up" />
+                            <span asp-validation-for="Subject" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Status -->
+                        <div class="col-md-6">
+                            <label asp-for="Status" class="form-label required">Status</label>
+                            <select asp-for="Status" class="form-select" asp-items="ViewBag.Statuses"></select>
+                            <span asp-validation-for="Status" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Assigned To -->
+                        <div class="col-md-6">
+                            <label asp-for="AssignedTo" class="form-label">Assign To</label>
+                            <select asp-for="AssignedTo" class="form-select" asp-items="ViewBag.Users">
+                                <option value="">-- Select Sales Executive --</option>
+                            </select>
+                            <span asp-validation-for="AssignedTo" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Related To -->
+                        <div class="col-12">
+                            <label class="form-label">Related To</label>
+                            <small class="text-muted">(Select one)</small>
+                        </div>
+
+                        <!-- Customer -->
+                        <div class="col-md-4">
+                            <label asp-for="CustomerId" class="form-label">Customer</label>
+                            <select asp-for="CustomerId" class="form-select" asp-items="ViewBag.Customers">
+                                <option value="">-- Select Customer --</option>
+                            </select>
+                            <span asp-validation-for="CustomerId" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Lead -->
+                        <div class="col-md-4">
+                            <label asp-for="LeadId" class="form-label">Lead</label>
+                            <select asp-for="LeadId" class="form-select" asp-items="ViewBag.Leads">
+                                <option value="">-- Select Lead --</option>
+                            </select>
+                            <span asp-validation-for="LeadId" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Opportunity -->
+                        <div class="col-md-4">
+                            <label asp-for="OpportunityId" class="form-label">Opportunity</label>
+                            <select asp-for="OpportunityId" class="form-select" asp-items="ViewBag.Opportunities">
+                                <option value="">-- Select Opportunity --</option>
+                            </select>
+                            <span asp-validation-for="OpportunityId" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Remarks -->
+                        <div class="col-12">
+                            <label asp-for="Remarks" class="form-label">Remarks</label>
+                            <textarea asp-for="Remarks" class="form-control" rows="4" placeholder="Notes, agenda, or discussion points..."></textarea>
+                            <span asp-validation-for="Remarks" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Actions -->
+                        <div class="col-12 d-flex gap-2">
+                            <button type="submit" class="btn btn-primary px-4">
+                                <i class="bi bi-check-circle me-1"></i>Schedule Follow-Up
+                            </button>
+                            <a asp-action="Index" class="btn btn-outline-secondary">Cancel</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <div class="card bg-light">
+            <div class="card-body">
+                <h6 class="fw-bold mb-3"><i class="bi bi-info-circle me-2"></i>Follow-Up Guidelines</h6>
+                <ul class="small mb-0">
+                    <li class="mb-2"><strong>Date:</strong> Cannot be earlier than today for planned follow-ups</li>
+                    <li class="mb-2"><strong>Type:</strong> Select appropriate follow-up method (Call, Email, Meeting, Visit)</li>
+                    <li class="mb-2"><strong>Status:</strong> New follow-ups typically start as "Planned"</li>
+                    <li class="mb-2"><strong>Related To:</strong> Link to Customer, Lead, or Opportunity for context</li>
+                    <li class="mb-2"><strong>Remarks:</strong> Add agenda, discussion points, or action items</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

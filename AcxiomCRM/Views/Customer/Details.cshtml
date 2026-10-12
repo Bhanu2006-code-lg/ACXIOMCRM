@@ -1,0 +1,70 @@
+@model AcxiomCRM.Models.Customer
+@{ ViewData["Title"] = "Customer Details"; }
+
+<div class="page-header">
+    <h4><i class="bi bi-person-lines-fill me-2"></i>@Model.CustomerName</h4>
+    <div class="d-flex gap-2">
+        <a asp-action="Edit" asp-route-id="@Model.CustomerId" class="btn btn-outline-secondary btn-sm"><i class="bi bi-pencil me-1"></i>Edit</a>
+        <a asp-action="Index" class="btn btn-outline-secondary btn-sm"><i class="bi bi-arrow-left me-1"></i>Back</a>
+    </div>
+</div>
+
+<div class="row g-3">
+    <div class="col-md-5">
+        <div class="crm-form-card">
+            <h6 class="fw-bold mb-3 text-muted">CUSTOMER INFO</h6>
+            <dl class="row mb-0">
+                <dt class="col-5 text-muted small">Code</dt><dd class="col-7"><span class="badge bg-secondary">@Model.CustomerCode</span></dd>
+                <dt class="col-5 text-muted small">Name</dt><dd class="col-7 fw-semibold">@Model.CustomerName</dd>
+                <dt class="col-5 text-muted small">Email</dt><dd class="col-7">@Model.Email</dd>
+                <dt class="col-5 text-muted small">Phone</dt><dd class="col-7">@Model.Phone</dd>
+                <dt class="col-5 text-muted small">Company</dt><dd class="col-7">@(Model.CompanyName ?? "—")</dd>
+                <dt class="col-5 text-muted small">City</dt><dd class="col-7">@(Model.City ?? "—")</dd>
+                <dt class="col-5 text-muted small">State</dt><dd class="col-7">@(Model.State ?? "—")</dd>
+                <dt class="col-5 text-muted small">Status</dt>
+                <dd class="col-7"><span class="status-badge @(Model.Status == "Active" ? "bg-success text-white" : "bg-secondary text-white")">@Model.Status</span></dd>
+                <dt class="col-5 text-muted small">Assigned To</dt><dd class="col-7">@(Model.AssignedUser?.FullName ?? "—")</dd>
+                <dt class="col-5 text-muted small">Created</dt><dd class="col-7 small">@Model.CreatedDate.ToString("dd MMM yyyy")</dd>
+                @if (!string.IsNullOrEmpty(Model.Notes))
+                {
+                    <dt class="col-5 text-muted small">Notes</dt><dd class="col-7 small">@Model.Notes</dd>
+                }
+            </dl>
+        </div>
+    </div>
+    <div class="col-md-7">
+        <div class="crm-form-card mb-3">
+            <h6 class="fw-bold mb-2 text-muted">LEADS (@Model.Leads.Count)</h6>
+            @foreach (var l in Model.Leads.Take(5))
+            {
+                <div class="d-flex justify-content-between border-bottom py-1 small">
+                    <span>@l.LeadName</span>
+                    <span class="badge bg-info text-dark">@l.Status</span>
+                </div>
+            }
+            @if (!Model.Leads.Any()) { <p class="text-muted small mb-0">No leads.</p> }
+        </div>
+        <div class="crm-form-card mb-3">
+            <h6 class="fw-bold mb-2 text-muted">OPPORTUNITIES (@Model.Opportunities.Count)</h6>
+            @foreach (var o in Model.Opportunities.Take(5))
+            {
+                <div class="d-flex justify-content-between border-bottom py-1 small">
+                    <span>@o.OpportunityName</span>
+                    <span>₹@o.Amount.ToString("N0") <span class="badge bg-primary">@o.Stage</span></span>
+                </div>
+            }
+            @if (!Model.Opportunities.Any()) { <p class="text-muted small mb-0">No opportunities.</p> }
+        </div>
+        <div class="crm-form-card">
+            <h6 class="fw-bold mb-2 text-muted">FOLLOW-UPS (@Model.FollowUps.Count)</h6>
+            @foreach (var f in Model.FollowUps.Take(5))
+            {
+                <div class="d-flex justify-content-between border-bottom py-1 small">
+                    <span>@f.Subject</span>
+                    <span>@f.FollowUpDate.ToString("dd MMM") <span class="badge bg-secondary">@f.Status</span></span>
+                </div>
+            }
+            @if (!Model.FollowUps.Any()) { <p class="text-muted small mb-0">No follow-ups.</p> }
+        </div>
+    </div>
+</div>

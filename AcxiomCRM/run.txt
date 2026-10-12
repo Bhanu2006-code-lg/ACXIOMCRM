@@ -1,0 +1,1285 @@
+info: Microsoft.EntityFrameworkCore.Migrations[20411]
+      Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (13ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsLock' AND "type" = 'table';
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      INSERT OR IGNORE INTO "__EFMigrationsLock"("Id", "Timestamp") VALUES(1, '2026-10-12 13:38:52.7790491+00:00');
+      SELECT changes();
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+          "MigrationId" TEXT NOT NULL CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY,
+          "ProductVersion" TEXT NOT NULL
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "MigrationId", "ProductVersion"
+      FROM "__EFMigrationsHistory"
+      ORDER BY "MigrationId";
+info: Microsoft.EntityFrameworkCore.Migrations[20405]
+      No migrations were applied. The database is already up to date.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      DELETE FROM "__EFMigrationsLock";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (4ms) [Parameters=[@normalizedName='?' (Size = 5)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+      FROM "AspNetRoles" AS "a"
+      WHERE "a"."NormalizedName" = @normalizedName
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@normalizedName='?' (Size = 7)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+      FROM "AspNetRoles" AS "a"
+      WHERE "a"."NormalizedName" = @normalizedName
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@normalizedName='?' (Size = 14)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+      FROM "AspNetRoles" AS "a"
+      WHERE "a"."NormalizedName" = @normalizedName
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@normalizedEmail='?' (Size = 16)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."CreatedDate", "a"."Email", "a"."EmailConfirmed", "a"."FullName", "a"."IsActive", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+      FROM "AspNetUsers" AS "a"
+      WHERE "a"."NormalizedEmail" = @normalizedEmail
+      LIMIT 2
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@normalizedEmail='?' (Size = 18)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."CreatedDate", "a"."Email", "a"."EmailConfirmed", "a"."FullName", "a"."IsActive", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+      FROM "AspNetUsers" AS "a"
+      WHERE "a"."NormalizedEmail" = @normalizedEmail
+      LIMIT 2
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@normalizedEmail='?' (Size = 16)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."CreatedDate", "a"."Email", "a"."EmailConfirmed", "a"."FullName", "a"."IsActive", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+      FROM "AspNetUsers" AS "a"
+      WHERE "a"."NormalizedEmail" = @normalizedEmail
+      LIMIT 2
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: http://localhost:5050
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Production
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: C:\Users\bhanu\OneDrive\Desktop\ACXIOMCRM\AcxiomCRM
+warn: Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware[3]
+      Failed to determine the https port for redirect.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Customers" AS "c"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Leads" AS "l"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Leads" AS "l"
+      WHERE "l"."Status" NOT IN ('Converted', 'Lost')
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Opportunities" AS "o"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Opportunities" AS "o"
+      WHERE "o"."Status" = 'Open'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Opportunities" AS "o"
+      WHERE "o"."Status" = 'Won'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Opportunities" AS "o"
+      WHERE "o"."Status" = 'Lost'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COALESCE(ef_sum("o"."Amount"), '0.0')
+      FROM "Opportunities" AS "o"
+      WHERE "o"."Status" = 'Open'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "FollowUps" AS "f"
+      WHERE "f"."Status" = 'Planned' AND "f"."FollowUpDate" >= rtrim(rtrim(strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime', 'start of day'), '0'), '.')
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "FollowUps" AS "f"
+      WHERE "f"."Status" = 'Planned' AND "f"."FollowUpDate" < rtrim(rtrim(strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime', 'start of day'), '0'), '.')
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "l"."Status" AS "Key", COUNT(*) AS "Count"
+      FROM "Leads" AS "l"
+      GROUP BY "l"."Status"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "o"."Stage" AS "Key", COALESCE(ef_sum("o"."Amount"), '0.0') AS "Total"
+      FROM "Opportunities" AS "o"
+      GROUP BY "o"."Stage"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@sixMonthsAgo='?' (DbType = DateTime)], CommandType='Text', CommandTimeout='30']
+      SELECT "o0"."Year", "o0"."Month", COALESCE(ef_sum("o0"."Amount"), '0.0') AS "Total"
+      FROM (
+          SELECT "o"."Amount", CAST(strftime('%Y', "o"."ModifiedDate") AS INTEGER) AS "Year", CAST(strftime('%m', "o"."ModifiedDate") AS INTEGER) AS "Month"
+          FROM "Opportunities" AS "o"
+          WHERE "o"."Status" = 'Won' AND "o"."ModifiedDate" >= @sixMonthsAgo
+      ) AS "o0"
+      GROUP BY "o0"."Year", "o0"."Month"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@p0='?' (Size = 6), @p1='?' (DbType = DateTime), @p2='?' (Size = 4), @p3='?' (Size = 3), @p4='?', @p5='?', @p6='?' (Size = 36), @p7='?' (Size = 7), @p8='?' (Size = 36), @p9='?' (Size = 18)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "AuditLogs" ("Action", "CreatedDate", "EntityName", "IpAddress", "NewValue", "OldValue", "RecordId", "Result", "UserId", "UserName")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9)
+      RETURNING "AuditLogId";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@normalizedEmail='?' (Size = 16)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."CreatedDate", "a"."Email", "a"."EmailConfirmed", "a"."FullName", "a"."IsActive", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+      FROM "AspNetUsers" AS "a"
+      WHERE "a"."NormalizedEmail" = @normalizedEmail
+      LIMIT 2
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@user_Id='?' (Size = 36)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Id", "a"."ClaimType", "a"."ClaimValue", "a"."UserId"
+      FROM "AspNetUserClaims" AS "a"
+      WHERE "a"."UserId" = @user_Id
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@userId='?' (Size = 36)], CommandType='Text', CommandTimeout='30']
+      SELECT "a0"."Name"
+      FROM "AspNetUserRoles" AS "a"
+      INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+      WHERE "a"."UserId" = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@normalizedName='?' (Size = 5)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+      FROM "AspNetRoles" AS "a"
+      WHERE "a"."NormalizedName" = @normalizedName
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@role_Id='?' (Size = 36)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."ClaimType", "a"."ClaimValue"
+      FROM "AspNetRoleClaims" AS "a"
+      WHERE "a"."RoleId" = @role_Id
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (Size = 5), @p1='?' (DbType = DateTime), @p2='?' (Size = 4), @p3='?' (Size = 3), @p4='?', @p5='?', @p6='?' (Size = 36), @p7='?' (Size = 7), @p8='?' (Size = 36), @p9='?' (Size = 16)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "AuditLogs" ("Action", "CreatedDate", "EntityName", "IpAddress", "NewValue", "OldValue", "RecordId", "Result", "UserId", "UserName")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9)
+      RETURNING "AuditLogId";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Customers" AS "c"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Leads" AS "l"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Leads" AS "l"
+      WHERE "l"."Status" NOT IN ('Converted', 'Lost')
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Opportunities" AS "o"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Opportunities" AS "o"
+      WHERE "o"."Status" = 'Open'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Opportunities" AS "o"
+      WHERE "o"."Status" = 'Won'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Opportunities" AS "o"
+      WHERE "o"."Status" = 'Lost'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COALESCE(ef_sum("o"."Amount"), '0.0')
+      FROM "Opportunities" AS "o"
+      WHERE "o"."Status" = 'Open'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "FollowUps" AS "f"
+      WHERE "f"."Status" = 'Planned' AND "f"."FollowUpDate" >= rtrim(rtrim(strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime', 'start of day'), '0'), '.')
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "FollowUps" AS "f"
+      WHERE "f"."Status" = 'Planned' AND "f"."FollowUpDate" < rtrim(rtrim(strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime', 'start of day'), '0'), '.')
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "l"."Status" AS "Key", COUNT(*) AS "Count"
+      FROM "Leads" AS "l"
+      GROUP BY "l"."Status"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "o"."Stage" AS "Key", COALESCE(ef_sum("o"."Amount"), '0.0') AS "Total"
+      FROM "Opportunities" AS "o"
+      GROUP BY "o"."Stage"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@sixMonthsAgo='?' (DbType = DateTime)], CommandType='Text', CommandTimeout='30']
+      SELECT "o0"."Year", "o0"."Month", COALESCE(ef_sum("o0"."Amount"), '0.0') AS "Total"
+      FROM (
+          SELECT "o"."Amount", CAST(strftime('%Y', "o"."ModifiedDate") AS INTEGER) AS "Year", CAST(strftime('%m', "o"."ModifiedDate") AS INTEGER) AS "Month"
+          FROM "Opportunities" AS "o"
+          WHERE "o"."Status" = 'Won' AND "o"."ModifiedDate" >= @sixMonthsAgo
+      ) AS "o0"
+      GROUP BY "o0"."Year", "o0"."Month"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "c"."CustomerId", "c"."Address", "c"."AssignedTo", "c"."City", "c"."CompanyName", "c"."CreatedBy", "c"."CreatedDate", "c"."CustomerCode", "c"."CustomerName", "c"."Email", "c"."ModifiedDate", "c"."Notes", "c"."Phone", "c"."State", "c"."Status", "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."CreatedDate", "a"."Email", "a"."EmailConfirmed", "a"."FullName", "a"."IsActive", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+      FROM "Customers" AS "c"
+      LEFT JOIN "AspNetUsers" AS "a" ON "c"."AssignedTo" = "a"."Id"
+      ORDER BY "c"."CreatedDate" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "l"."LeadId", "l"."AssignedTo", "l"."CompanyName", "l"."ConvertedCustomerId", "l"."CreatedBy", "l"."CreatedDate", "l"."CustomerId", "l"."Email", "l"."ExpectedValue", "l"."IsConverted", "l"."LeadCode", "l"."LeadName", "l"."ModifiedDate", "l"."Notes", "l"."Phone", "l"."Priority", "l"."Source", "l"."Status", "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."CreatedDate", "a"."Email", "a"."EmailConfirmed", "a"."FullName", "a"."IsActive", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+      FROM "Leads" AS "l"
+      LEFT JOIN "AspNetUsers" AS "a" ON "l"."AssignedTo" = "a"."Id"
+      ORDER BY "l"."CreatedDate" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "o"."OpportunityId", "o"."Amount", "o"."AssignedTo", "o"."CreatedBy", "o"."CreatedDate", "o"."CustomerId", "o"."ExpectedCloseDate", "o"."LeadId", "o"."ModifiedDate", "o"."Notes", "o"."OpportunityName", "o"."Probability", "o"."Stage", "o"."Status", "c"."CustomerId", "c"."Address", "c"."AssignedTo", "c"."City", "c"."CompanyName", "c"."CreatedBy", "c"."CreatedDate", "c"."CustomerCode", "c"."CustomerName", "c"."Email", "c"."ModifiedDate", "c"."Notes", "c"."Phone", "c"."State", "c"."Status", "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."CreatedDate", "a"."Email", "a"."EmailConfirmed", "a"."FullName", "a"."IsActive", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+      FROM "Opportunities" AS "o"
+      LEFT JOIN "Customers" AS "c" ON "o"."CustomerId" = "c"."CustomerId"
+      LEFT JOIN "AspNetUsers" AS "a" ON "o"."AssignedTo" = "a"."Id"
+      ORDER BY "o"."CreatedDate" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "FollowUps" AS "f"
+      WHERE "f"."Status" = 'Planned' AND "f"."FollowUpDate" < rtrim(rtrim(strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime', 'start of day'), '0'), '.')
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "f"."FollowUpId", "f"."AssignedTo", "f"."CreatedBy", "f"."CreatedDate", "f"."CustomerId", "f"."FollowUpDate", "f"."FollowUpType", "f"."LeadId", "f"."OpportunityId", "f"."Remarks", "f"."Status", "f"."Subject", "c"."CustomerId", "c"."Address", "c"."AssignedTo", "c"."City", "c"."CompanyName", "c"."CreatedBy", "c"."CreatedDate", "c"."CustomerCode", "c"."CustomerName", "c"."Email", "c"."ModifiedDate", "c"."Notes", "c"."Phone", "c"."State", "c"."Status", "l"."LeadId", "l"."AssignedTo", "l"."CompanyName", "l"."ConvertedCustomerId", "l"."CreatedBy", "l"."CreatedDate", "l"."CustomerId", "l"."Email", "l"."ExpectedValue", "l"."IsConverted", "l"."LeadCode", "l"."LeadName", "l"."ModifiedDate", "l"."Notes", "l"."Phone", "l"."Priority", "l"."Source", "l"."Status", "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."CreatedDate", "a"."Email", "a"."EmailConfirmed", "a"."FullName", "a"."IsActive", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+      FROM "FollowUps" AS "f"
+      LEFT JOIN "Customers" AS "c" ON "f"."CustomerId" = "c"."CustomerId"
+      LEFT JOIN "Leads" AS "l" ON "f"."LeadId" = "l"."LeadId"
+      LEFT JOIN "AspNetUsers" AS "a" ON "f"."AssignedTo" = "a"."Id"
+      ORDER BY "f"."FollowUpDate"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."ActivityId", "a"."ActivityDate", "a"."ActivityType", "a"."AssignedTo", "a"."CreatedBy", "a"."CreatedDate", "a"."CustomerId", "a"."Description", "a"."LeadId", "a"."Status", "a"."Subject", "c"."CustomerId", "c"."Address", "c"."AssignedTo", "c"."City", "c"."CompanyName", "c"."CreatedBy", "c"."CreatedDate", "c"."CustomerCode", "c"."CustomerName", "c"."Email", "c"."ModifiedDate", "c"."Notes", "c"."Phone", "c"."State", "c"."Status", "l"."LeadId", "l"."AssignedTo", "l"."CompanyName", "l"."ConvertedCustomerId", "l"."CreatedBy", "l"."CreatedDate", "l"."CustomerId", "l"."Email", "l"."ExpectedValue", "l"."IsConverted", "l"."LeadCode", "l"."LeadName", "l"."ModifiedDate", "l"."Notes", "l"."Phone", "l"."Priority", "l"."Source", "l"."Status", "a0"."Id", "a0"."AccessFailedCount", "a0"."ConcurrencyStamp", "a0"."CreatedDate", "a0"."Email", "a0"."EmailConfirmed", "a0"."FullName", "a0"."IsActive", "a0"."LockoutEnabled", "a0"."LockoutEnd", "a0"."NormalizedEmail", "a0"."NormalizedUserName", "a0"."PasswordHash", "a0"."PhoneNumber", "a0"."PhoneNumberConfirmed", "a0"."SecurityStamp", "a0"."TwoFactorEnabled", "a0"."UserName"
+      FROM "Activities" AS "a"
+      LEFT JOIN "Customers" AS "c" ON "a"."CustomerId" = "c"."CustomerId"
+      LEFT JOIN "Leads" AS "l" ON "a"."LeadId" = "l"."LeadId"
+      LEFT JOIN "AspNetUsers" AS "a0" ON "a"."AssignedTo" = "a0"."Id"
+      ORDER BY "a"."ActivityDate" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."CreatedDate", "a"."Email", "a"."EmailConfirmed", "a"."FullName", "a"."IsActive", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+      FROM "AspNetUsers" AS "a"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@userId='?' (Size = 36)], CommandType='Text', CommandTimeout='30']
+      SELECT "a0"."Name"
+      FROM "AspNetUserRoles" AS "a"
+      INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+      WHERE "a"."UserId" = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@userId='?' (Size = 36)], CommandType='Text', CommandTimeout='30']
+      SELECT "a0"."Name"
+      FROM "AspNetUserRoles" AS "a"
+      INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+      WHERE "a"."UserId" = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@userId='?' (Size = 36)], CommandType='Text', CommandTimeout='30']
+      SELECT "a0"."Name"
+      FROM "AspNetUserRoles" AS "a"
+      INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+      WHERE "a"."UserId" = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@action='?' (Size = 5), @p='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."AuditLogId", "a"."Action", "a"."CreatedDate", "a"."EntityName", "a"."IpAddress", "a"."NewValue", "a"."OldValue", "a"."RecordId", "a"."Result", "a"."UserId", "a"."UserName"
+      FROM "AuditLogs" AS "a"
+      WHERE "a"."Action" = @action
+      ORDER BY "a"."CreatedDate" DESC
+      LIMIT @p
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."CreatedDate", "a"."Email", "a"."EmailConfirmed", "a"."FullName", "a"."IsActive", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+      FROM "AspNetUsers" AS "a"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@userId='?' (Size = 36)], CommandType='Text', CommandTimeout='30']
+      SELECT "a0"."Name"
+      FROM "AspNetUserRoles" AS "a"
+      INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+      WHERE "a"."UserId" = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@userId='?' (Size = 36)], CommandType='Text', CommandTimeout='30']
+      SELECT "a0"."Name"
+      FROM "AspNetUserRoles" AS "a"
+      INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+      WHERE "a"."UserId" = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@userId='?' (Size = 36)], CommandType='Text', CommandTimeout='30']
+      SELECT "a0"."Name"
+      FROM "AspNetUserRoles" AS "a"
+      INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+      WHERE "a"."UserId" = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Customers" AS "c"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Leads" AS "l"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Leads" AS "l"
+      WHERE "l"."Status" NOT IN ('Converted', 'Lost')
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Opportunities" AS "o"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Opportunities" AS "o"
+      WHERE "o"."Status" = 'Open'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Opportunities" AS "o"
+      WHERE "o"."Status" = 'Won'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Opportunities" AS "o"
+      WHERE "o"."Status" = 'Lost'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COALESCE(ef_sum("o"."Amount"), '0.0')
+      FROM "Opportunities" AS "o"
+      WHERE "o"."Status" = 'Open'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "FollowUps" AS "f"
+      WHERE "f"."Status" = 'Planned' AND "f"."FollowUpDate" >= rtrim(rtrim(strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime', 'start of day'), '0'), '.')
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "FollowUps" AS "f"
+      WHERE "f"."Status" = 'Planned' AND "f"."FollowUpDate" < rtrim(rtrim(strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime', 'start of day'), '0'), '.')
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "l"."Status" AS "Key", COUNT(*) AS "Count"
+      FROM "Leads" AS "l"
+      GROUP BY "l"."Status"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "o"."Stage" AS "Key", COALESCE(ef_sum("o"."Amount"), '0.0') AS "Total"
+      FROM "Opportunities" AS "o"
+      GROUP BY "o"."Stage"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@sixMonthsAgo='?' (DbType = DateTime)], CommandType='Text', CommandTimeout='30']
+      SELECT "o0"."Year", "o0"."Month", COALESCE(ef_sum("o0"."Amount"), '0.0') AS "Total"
+      FROM (
+          SELECT "o"."Amount", CAST(strftime('%Y', "o"."ModifiedDate") AS INTEGER) AS "Year", CAST(strftime('%m', "o"."ModifiedDate") AS INTEGER) AS "Month"
+          FROM "Opportunities" AS "o"
+          WHERE "o"."Status" = 'Won' AND "o"."ModifiedDate" >= @sixMonthsAgo
+      ) AS "o0"
+      GROUP BY "o0"."Year", "o0"."Month"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "c"."CustomerId", "c"."Address", "c"."AssignedTo", "c"."City", "c"."CompanyName", "c"."CreatedBy", "c"."CreatedDate", "c"."CustomerCode", "c"."CustomerName", "c"."Email", "c"."ModifiedDate", "c"."Notes", "c"."Phone", "c"."State", "c"."Status", "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."CreatedDate", "a"."Email", "a"."EmailConfirmed", "a"."FullName", "a"."IsActive", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+      FROM "Customers" AS "c"
+      LEFT JOIN "AspNetUsers" AS "a" ON "c"."AssignedTo" = "a"."Id"
+      ORDER BY "c"."CreatedDate" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "l"."LeadId", "l"."AssignedTo", "l"."CompanyName", "l"."ConvertedCustomerId", "l"."CreatedBy", "l"."CreatedDate", "l"."CustomerId", "l"."Email", "l"."ExpectedValue", "l"."IsConverted", "l"."LeadCode", "l"."LeadName", "l"."ModifiedDate", "l"."Notes", "l"."Phone", "l"."Priority", "l"."Source", "l"."Status", "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."CreatedDate", "a"."Email", "a"."EmailConfirmed", "a"."FullName", "a"."IsActive", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+      FROM "Leads" AS "l"
+      LEFT JOIN "AspNetUsers" AS "a" ON "l"."AssignedTo" = "a"."Id"
+      ORDER BY "l"."CreatedDate" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "o"."OpportunityId", "o"."Amount", "o"."AssignedTo", "o"."CreatedBy", "o"."CreatedDate", "o"."CustomerId", "o"."ExpectedCloseDate", "o"."LeadId", "o"."ModifiedDate", "o"."Notes", "o"."OpportunityName", "o"."Probability", "o"."Stage", "o"."Status", "c"."CustomerId", "c"."Address", "c"."AssignedTo", "c"."City", "c"."CompanyName", "c"."CreatedBy", "c"."CreatedDate", "c"."CustomerCode", "c"."CustomerName", "c"."Email", "c"."ModifiedDate", "c"."Notes", "c"."Phone", "c"."State", "c"."Status", "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."CreatedDate", "a"."Email", "a"."EmailConfirmed", "a"."FullName", "a"."IsActive", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+      FROM "Opportunities" AS "o"
+      LEFT JOIN "Customers" AS "c" ON "o"."CustomerId" = "c"."CustomerId"
+      LEFT JOIN "AspNetUsers" AS "a" ON "o"."AssignedTo" = "a"."Id"
+      ORDER BY "o"."CreatedDate" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "l"."LeadId", "l"."AssignedTo", "l"."CompanyName", "l"."ConvertedCustomerId", "l"."CreatedBy", "l"."CreatedDate", "l"."CustomerId", "l"."Email", "l"."ExpectedValue", "l"."IsConverted", "l"."LeadCode", "l"."LeadName", "l"."ModifiedDate", "l"."Notes", "l"."Phone", "l"."Priority", "l"."Source", "l"."Status", "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."CreatedDate", "a"."Email", "a"."EmailConfirmed", "a"."FullName", "a"."IsActive", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+      FROM "Leads" AS "l"
+      LEFT JOIN "AspNetUsers" AS "a" ON "l"."AssignedTo" = "a"."Id"
+      ORDER BY "l"."CreatedDate" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@status='?' (Size = 9)], CommandType='Text', CommandTimeout='30']
+      SELECT "l"."LeadId", "l"."AssignedTo", "l"."CompanyName", "l"."ConvertedCustomerId", "l"."CreatedBy", "l"."CreatedDate", "l"."CustomerId", "l"."Email", "l"."ExpectedValue", "l"."IsConverted", "l"."LeadCode", "l"."LeadName", "l"."ModifiedDate", "l"."Notes", "l"."Phone", "l"."Priority", "l"."Source", "l"."Status", "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."CreatedDate", "a"."Email", "a"."EmailConfirmed", "a"."FullName", "a"."IsActive", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+      FROM "Leads" AS "l"
+      LEFT JOIN "AspNetUsers" AS "a" ON "l"."AssignedTo" = "a"."Id"
+      WHERE "l"."Status" = @status
+      ORDER BY "l"."CreatedDate" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."UserId", "a"."UserName", COUNT(*) AS "Count"
+      FROM "AuditLogs" AS "a"
+      GROUP BY "a"."UserId", "a"."UserName"
+      ORDER BY COUNT(*) DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "c"."CustomerId", "c"."Address", "c"."AssignedTo", "c"."City", "c"."CompanyName", "c"."CreatedBy", "c"."CreatedDate", "c"."CustomerCode", "c"."CustomerName", "c"."Email", "c"."ModifiedDate", "c"."Notes", "c"."Phone", "c"."State", "c"."Status", "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."CreatedDate", "a"."Email", "a"."EmailConfirmed", "a"."FullName", "a"."IsActive", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+      FROM "Customers" AS "c"
+      LEFT JOIN "AspNetUsers" AS "a" ON "c"."AssignedTo" = "a"."Id"
+      ORDER BY "c"."CreatedDate" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@normalizedEmail='?' (Size = 16)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."CreatedDate", "a"."Email", "a"."EmailConfirmed", "a"."FullName", "a"."IsActive", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+      FROM "AspNetUsers" AS "a"
+      WHERE "a"."NormalizedEmail" = @normalizedEmail
+      LIMIT 2
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@user_Id='?' (Size = 36)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Id", "a"."ClaimType", "a"."ClaimValue", "a"."UserId"
+      FROM "AspNetUserClaims" AS "a"
+      WHERE "a"."UserId" = @user_Id
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@userId='?' (Size = 36)], CommandType='Text', CommandTimeout='30']
+      SELECT "a0"."Name"
+      FROM "AspNetUserRoles" AS "a"
+      INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+      WHERE "a"."UserId" = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@normalizedName='?' (Size = 5)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+      FROM "AspNetRoles" AS "a"
+      WHERE "a"."NormalizedName" = @normalizedName
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@role_Id='?' (Size = 36)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."ClaimType", "a"."ClaimValue"
+      FROM "AspNetRoleClaims" AS "a"
+      WHERE "a"."RoleId" = @role_Id
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (Size = 5), @p1='?' (DbType = DateTime), @p2='?' (Size = 4), @p3='?' (Size = 3), @p4='?', @p5='?', @p6='?' (Size = 36), @p7='?' (Size = 7), @p8='?' (Size = 36), @p9='?' (Size = 16)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "AuditLogs" ("Action", "CreatedDate", "EntityName", "IpAddress", "NewValue", "OldValue", "RecordId", "Result", "UserId", "UserName")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9)
+      RETURNING "AuditLogId";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Customers" AS "c"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Leads" AS "l"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Leads" AS "l"
+      WHERE "l"."Status" NOT IN ('Converted', 'Lost')
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Opportunities" AS "o"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Opportunities" AS "o"
+      WHERE "o"."Status" = 'Open'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Opportunities" AS "o"
+      WHERE "o"."Status" = 'Won'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Opportunities" AS "o"
+      WHERE "o"."Status" = 'Lost'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COALESCE(ef_sum("o"."Amount"), '0.0')
+      FROM "Opportunities" AS "o"
+      WHERE "o"."Status" = 'Open'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "FollowUps" AS "f"
+      WHERE "f"."Status" = 'Planned' AND "f"."FollowUpDate" >= rtrim(rtrim(strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime', 'start of day'), '0'), '.')
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "FollowUps" AS "f"
+      WHERE "f"."Status" = 'Planned' AND "f"."FollowUpDate" < rtrim(rtrim(strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime', 'start of day'), '0'), '.')
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "l"."Status" AS "Key", COUNT(*) AS "Count"
+      FROM "Leads" AS "l"
+      GROUP BY "l"."Status"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "o"."Stage" AS "Key", COALESCE(ef_sum("o"."Amount"), '0.0') AS "Total"
+      FROM "Opportunities" AS "o"
+      GROUP BY "o"."Stage"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@sixMonthsAgo='?' (DbType = DateTime)], CommandType='Text', CommandTimeout='30']
+      SELECT "o0"."Year", "o0"."Month", COALESCE(ef_sum("o0"."Amount"), '0.0') AS "Total"
+      FROM (
+          SELECT "o"."Amount", CAST(strftime('%Y', "o"."ModifiedDate") AS INTEGER) AS "Year", CAST(strftime('%m', "o"."ModifiedDate") AS INTEGER) AS "Month"
+          FROM "Opportunities" AS "o"
+          WHERE "o"."Status" = 'Won' AND "o"."ModifiedDate" >= @sixMonthsAgo
+      ) AS "o0"
+      GROUP BY "o0"."Year", "o0"."Month"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Customers" AS "c"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Leads" AS "l"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Leads" AS "l"
+      WHERE "l"."Status" NOT IN ('Converted', 'Lost')
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Opportunities" AS "o"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Opportunities" AS "o"
+      WHERE "o"."Status" = 'Open'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Opportunities" AS "o"
+      WHERE "o"."Status" = 'Won'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Opportunities" AS "o"
+      WHERE "o"."Status" = 'Lost'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COALESCE(ef_sum("o"."Amount"), '0.0')
+      FROM "Opportunities" AS "o"
+      WHERE "o"."Status" = 'Open'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "FollowUps" AS "f"
+      WHERE "f"."Status" = 'Planned' AND "f"."FollowUpDate" >= rtrim(rtrim(strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime', 'start of day'), '0'), '.')
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "FollowUps" AS "f"
+      WHERE "f"."Status" = 'Planned' AND "f"."FollowUpDate" < rtrim(rtrim(strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime', 'start of day'), '0'), '.')
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "l"."Status" AS "Key", COUNT(*) AS "Count"
+      FROM "Leads" AS "l"
+      GROUP BY "l"."Status"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "o"."Stage" AS "Key", COALESCE(ef_sum("o"."Amount"), '0.0') AS "Total"
+      FROM "Opportunities" AS "o"
+      GROUP BY "o"."Stage"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@sixMonthsAgo='?' (DbType = DateTime)], CommandType='Text', CommandTimeout='30']
+      SELECT "o0"."Year", "o0"."Month", COALESCE(ef_sum("o0"."Amount"), '0.0') AS "Total"
+      FROM (
+          SELECT "o"."Amount", CAST(strftime('%Y', "o"."ModifiedDate") AS INTEGER) AS "Year", CAST(strftime('%m', "o"."ModifiedDate") AS INTEGER) AS "Month"
+          FROM "Opportunities" AS "o"
+          WHERE "o"."Status" = 'Won' AND "o"."ModifiedDate" >= @sixMonthsAgo
+      ) AS "o0"
+      GROUP BY "o0"."Year", "o0"."Month"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "c"."CustomerId", "c"."Address", "c"."AssignedTo", "c"."City", "c"."CompanyName", "c"."CreatedBy", "c"."CreatedDate", "c"."CustomerCode", "c"."CustomerName", "c"."Email", "c"."ModifiedDate", "c"."Notes", "c"."Phone", "c"."State", "c"."Status", "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."CreatedDate", "a"."Email", "a"."EmailConfirmed", "a"."FullName", "a"."IsActive", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+      FROM "Customers" AS "c"
+      LEFT JOIN "AspNetUsers" AS "a" ON "c"."AssignedTo" = "a"."Id"
+      ORDER BY "c"."CreatedDate" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@normalizedRoleName='?' (Size = 14)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+      FROM "AspNetRoles" AS "a"
+      WHERE "a"."NormalizedName" = @normalizedRoleName
+      LIMIT 2
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@role_Id='?' (Size = 36)], CommandType='Text', CommandTimeout='30']
+      SELECT "a0"."Id", "a0"."AccessFailedCount", "a0"."ConcurrencyStamp", "a0"."CreatedDate", "a0"."Email", "a0"."EmailConfirmed", "a0"."FullName", "a0"."IsActive", "a0"."LockoutEnabled", "a0"."LockoutEnd", "a0"."NormalizedEmail", "a0"."NormalizedUserName", "a0"."PasswordHash", "a0"."PhoneNumber", "a0"."PhoneNumberConfirmed", "a0"."SecurityStamp", "a0"."TwoFactorEnabled", "a0"."UserName"
+      FROM "AspNetUserRoles" AS "a"
+      INNER JOIN "AspNetUsers" AS "a0" ON "a"."UserId" = "a0"."Id"
+      WHERE "a"."RoleId" = @role_Id
+fail: Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware[1]
+      An unhandled exception has occurred while executing the request.
+      System.InvalidOperationException: The partial view '_ValidationScriptsPartial' was not found. The following locations were searched:
+      /Views/Customer/_ValidationScriptsPartial.cshtml
+      /Views/Shared/_ValidationScriptsPartial.cshtml
+         at Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+         at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.<RunAsync>g__Awaited|0_0(Task task, TagHelperExecutionContext executionContext, Int32 i, Int32 count)
+         at AspNetCoreGeneratedDocument.Views_Customer_Create.<ExecuteAsync>b__37_2()
+         at Microsoft.AspNetCore.Mvc.Razor.RazorPage.RenderSectionAsyncCore(String sectionName, Boolean required)
+         at AspNetCoreGeneratedDocument.Views_Shared__Layout.<ExecuteAsync>b__16_1() in C:\Users\bhanu\OneDrive\Desktop\ACXIOMCRM\AcxiomCRM\Views\Shared\_Layout.cshtml:line 146
+         at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.SetOutputContentAsync()
+         at AspNetCoreGeneratedDocument.Views_Shared__Layout.ExecuteAsync()
+         at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+         at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+         at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+         at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+         at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+         at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+         at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+         at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+         at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+      --- End of stack trace from previous location ---
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+      --- End of stack trace from previous location ---
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+         at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+         at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+         at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+fail: Microsoft.AspNetCore.Server.Kestrel[13]
+      Connection id "0HNP8COM3Q782", Request id "0HNP8COM3Q782:0000000A": An unhandled exception was thrown by the application.
+      System.InvalidOperationException: The exception handler configured on ExceptionHandlerOptions produced a 404 status response. This InvalidOperationException containing the original exception was thrown since this is often due to a misconfigured ExceptionHandlingPath. If the exception handler is expected to return 404 status responses then set AllowStatusCode404Response to true.
+       ---> System.InvalidOperationException: The partial view '_ValidationScriptsPartial' was not found. The following locations were searched:
+      /Views/Customer/_ValidationScriptsPartial.cshtml
+      /Views/Shared/_ValidationScriptsPartial.cshtml
+         at Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+         at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.<RunAsync>g__Awaited|0_0(Task task, TagHelperExecutionContext executionContext, Int32 i, Int32 count)
+         at AspNetCoreGeneratedDocument.Views_Customer_Create.<ExecuteAsync>b__37_2()
+         at Microsoft.AspNetCore.Mvc.Razor.RazorPage.RenderSectionAsyncCore(String sectionName, Boolean required)
+         at AspNetCoreGeneratedDocument.Views_Shared__Layout.<ExecuteAsync>b__16_1() in C:\Users\bhanu\OneDrive\Desktop\ACXIOMCRM\AcxiomCRM\Views\Shared\_Layout.cshtml:line 146
+         at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.SetOutputContentAsync()
+         at AspNetCoreGeneratedDocument.Views_Shared__Layout.ExecuteAsync()
+         at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+         at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+         at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+         at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+         at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+         at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+         at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+         at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+         at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+      --- End of stack trace from previous location ---
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+      --- End of stack trace from previous location ---
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+         at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+         at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+         at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+         --- End of inner exception stack trace ---
+         at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.HandleException(HttpContext context, ExceptionDispatchInfo edi)
+         at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.HandleException(HttpContext context, ExceptionDispatchInfo edi)
+         at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+         at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "l"."LeadId", "l"."AssignedTo", "l"."CompanyName", "l"."ConvertedCustomerId", "l"."CreatedBy", "l"."CreatedDate", "l"."CustomerId", "l"."Email", "l"."ExpectedValue", "l"."IsConverted", "l"."LeadCode", "l"."LeadName", "l"."ModifiedDate", "l"."Notes", "l"."Phone", "l"."Priority", "l"."Source", "l"."Status", "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."CreatedDate", "a"."Email", "a"."EmailConfirmed", "a"."FullName", "a"."IsActive", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+      FROM "Leads" AS "l"
+      LEFT JOIN "AspNetUsers" AS "a" ON "l"."AssignedTo" = "a"."Id"
+      ORDER BY "l"."CreatedDate" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@normalizedRoleName='?' (Size = 14)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+      FROM "AspNetRoles" AS "a"
+      WHERE "a"."NormalizedName" = @normalizedRoleName
+      LIMIT 2
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@role_Id='?' (Size = 36)], CommandType='Text', CommandTimeout='30']
+      SELECT "a0"."Id", "a0"."AccessFailedCount", "a0"."ConcurrencyStamp", "a0"."CreatedDate", "a0"."Email", "a0"."EmailConfirmed", "a0"."FullName", "a0"."IsActive", "a0"."LockoutEnabled", "a0"."LockoutEnd", "a0"."NormalizedEmail", "a0"."NormalizedUserName", "a0"."PasswordHash", "a0"."PhoneNumber", "a0"."PhoneNumberConfirmed", "a0"."SecurityStamp", "a0"."TwoFactorEnabled", "a0"."UserName"
+      FROM "AspNetUserRoles" AS "a"
+      INNER JOIN "AspNetUsers" AS "a0" ON "a"."UserId" = "a0"."Id"
+      WHERE "a"."RoleId" = @role_Id
+fail: Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware[1]
+      An unhandled exception has occurred while executing the request.
+      System.InvalidOperationException: The partial view '_ValidationScriptsPartial' was not found. The following locations were searched:
+      /Views/Lead/_ValidationScriptsPartial.cshtml
+      /Views/Shared/_ValidationScriptsPartial.cshtml
+         at Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+         at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.<RunAsync>g__Awaited|0_0(Task task, TagHelperExecutionContext executionContext, Int32 i, Int32 count)
+         at AspNetCoreGeneratedDocument.Views_Lead_Create.<ExecuteAsync>b__33_2()
+         at Microsoft.AspNetCore.Mvc.Razor.RazorPage.RenderSectionAsyncCore(String sectionName, Boolean required)
+         at AspNetCoreGeneratedDocument.Views_Shared__Layout.<ExecuteAsync>b__16_1() in C:\Users\bhanu\OneDrive\Desktop\ACXIOMCRM\AcxiomCRM\Views\Shared\_Layout.cshtml:line 146
+         at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.SetOutputContentAsync()
+         at AspNetCoreGeneratedDocument.Views_Shared__Layout.ExecuteAsync()
+         at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+         at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+         at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+         at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+         at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+         at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+         at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+         at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+         at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+      --- End of stack trace from previous location ---
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+      --- End of stack trace from previous location ---
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+         at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+         at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+         at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+fail: Microsoft.AspNetCore.Server.Kestrel[13]
+      Connection id "0HNP8COM3Q782", Request id "0HNP8COM3Q782:0000000C": An unhandled exception was thrown by the application.
+      System.InvalidOperationException: The exception handler configured on ExceptionHandlerOptions produced a 404 status response. This InvalidOperationException containing the original exception was thrown since this is often due to a misconfigured ExceptionHandlingPath. If the exception handler is expected to return 404 status responses then set AllowStatusCode404Response to true.
+       ---> System.InvalidOperationException: The partial view '_ValidationScriptsPartial' was not found. The following locations were searched:
+      /Views/Lead/_ValidationScriptsPartial.cshtml
+      /Views/Shared/_ValidationScriptsPartial.cshtml
+         at Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+         at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.<RunAsync>g__Awaited|0_0(Task task, TagHelperExecutionContext executionContext, Int32 i, Int32 count)
+         at AspNetCoreGeneratedDocument.Views_Lead_Create.<ExecuteAsync>b__33_2()
+         at Microsoft.AspNetCore.Mvc.Razor.RazorPage.RenderSectionAsyncCore(String sectionName, Boolean required)
+         at AspNetCoreGeneratedDocument.Views_Shared__Layout.<ExecuteAsync>b__16_1() in C:\Users\bhanu\OneDrive\Desktop\ACXIOMCRM\AcxiomCRM\Views\Shared\_Layout.cshtml:line 146
+         at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.SetOutputContentAsync()
+         at AspNetCoreGeneratedDocument.Views_Shared__Layout.ExecuteAsync()
+         at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+         at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+         at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+         at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+         at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+         at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+         at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+         at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+         at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+      --- End of stack trace from previous location ---
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+      --- End of stack trace from previous location ---
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+         at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+         at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+         at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+         --- End of inner exception stack trace ---
+         at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.HandleException(HttpContext context, ExceptionDispatchInfo edi)
+         at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.HandleException(HttpContext context, ExceptionDispatchInfo edi)
+         at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+         at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "o"."OpportunityId", "o"."Amount", "o"."AssignedTo", "o"."CreatedBy", "o"."CreatedDate", "o"."CustomerId", "o"."ExpectedCloseDate", "o"."LeadId", "o"."ModifiedDate", "o"."Notes", "o"."OpportunityName", "o"."Probability", "o"."Stage", "o"."Status", "c"."CustomerId", "c"."Address", "c"."AssignedTo", "c"."City", "c"."CompanyName", "c"."CreatedBy", "c"."CreatedDate", "c"."CustomerCode", "c"."CustomerName", "c"."Email", "c"."ModifiedDate", "c"."Notes", "c"."Phone", "c"."State", "c"."Status", "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."CreatedDate", "a"."Email", "a"."EmailConfirmed", "a"."FullName", "a"."IsActive", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+      FROM "Opportunities" AS "o"
+      LEFT JOIN "Customers" AS "c" ON "o"."CustomerId" = "c"."CustomerId"
+      LEFT JOIN "AspNetUsers" AS "a" ON "o"."AssignedTo" = "a"."Id"
+      ORDER BY "o"."CreatedDate" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@normalizedRoleName='?' (Size = 14)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+      FROM "AspNetRoles" AS "a"
+      WHERE "a"."NormalizedName" = @normalizedRoleName
+      LIMIT 2
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@role_Id='?' (Size = 36)], CommandType='Text', CommandTimeout='30']
+      SELECT "a0"."Id", "a0"."AccessFailedCount", "a0"."ConcurrencyStamp", "a0"."CreatedDate", "a0"."Email", "a0"."EmailConfirmed", "a0"."FullName", "a0"."IsActive", "a0"."LockoutEnabled", "a0"."LockoutEnd", "a0"."NormalizedEmail", "a0"."NormalizedUserName", "a0"."PasswordHash", "a0"."PhoneNumber", "a0"."PhoneNumberConfirmed", "a0"."SecurityStamp", "a0"."TwoFactorEnabled", "a0"."UserName"
+      FROM "AspNetUserRoles" AS "a"
+      INNER JOIN "AspNetUsers" AS "a0" ON "a"."UserId" = "a0"."Id"
+      WHERE "a"."RoleId" = @role_Id
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "c"."CustomerId", "c"."Address", "c"."AssignedTo", "c"."City", "c"."CompanyName", "c"."CreatedBy", "c"."CreatedDate", "c"."CustomerCode", "c"."CustomerName", "c"."Email", "c"."ModifiedDate", "c"."Notes", "c"."Phone", "c"."State", "c"."Status"
+      FROM "Customers" AS "c"
+      WHERE "c"."Status" = 'Active'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "l"."LeadId", "l"."AssignedTo", "l"."CompanyName", "l"."ConvertedCustomerId", "l"."CreatedBy", "l"."CreatedDate", "l"."CustomerId", "l"."Email", "l"."ExpectedValue", "l"."IsConverted", "l"."LeadCode", "l"."LeadName", "l"."ModifiedDate", "l"."Notes", "l"."Phone", "l"."Priority", "l"."Source", "l"."Status"
+      FROM "Leads" AS "l"
+      WHERE "l"."Status" = 'Qualified'
+fail: Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware[1]
+      An unhandled exception has occurred while executing the request.
+      System.InvalidOperationException: The partial view '_ValidationScriptsPartial' was not found. The following locations were searched:
+      /Views/Opportunity/_ValidationScriptsPartial.cshtml
+      /Views/Shared/_ValidationScriptsPartial.cshtml
+         at Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+         at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.<RunAsync>g__Awaited|0_0(Task task, TagHelperExecutionContext executionContext, Int32 i, Int32 count)
+         at AspNetCoreGeneratedDocument.Views_Opportunity_Create.<ExecuteAsync>b__40_2()
+         at Microsoft.AspNetCore.Mvc.Razor.RazorPage.RenderSectionAsyncCore(String sectionName, Boolean required)
+         at AspNetCoreGeneratedDocument.Views_Shared__Layout.<ExecuteAsync>b__16_1() in C:\Users\bhanu\OneDrive\Desktop\ACXIOMCRM\AcxiomCRM\Views\Shared\_Layout.cshtml:line 146
+         at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.SetOutputContentAsync()
+         at AspNetCoreGeneratedDocument.Views_Shared__Layout.ExecuteAsync()
+         at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+         at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+         at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+         at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+         at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+         at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+         at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+         at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+         at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+      --- End of stack trace from previous location ---
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+      --- End of stack trace from previous location ---
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+         at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+         at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+         at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+fail: Microsoft.AspNetCore.Server.Kestrel[13]
+      Connection id "0HNP8COM3Q782", Request id "0HNP8COM3Q782:0000000E": An unhandled exception was thrown by the application.
+      System.InvalidOperationException: The exception handler configured on ExceptionHandlerOptions produced a 404 status response. This InvalidOperationException containing the original exception was thrown since this is often due to a misconfigured ExceptionHandlingPath. If the exception handler is expected to return 404 status responses then set AllowStatusCode404Response to true.
+       ---> System.InvalidOperationException: The partial view '_ValidationScriptsPartial' was not found. The following locations were searched:
+      /Views/Opportunity/_ValidationScriptsPartial.cshtml
+      /Views/Shared/_ValidationScriptsPartial.cshtml
+         at Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+         at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.<RunAsync>g__Awaited|0_0(Task task, TagHelperExecutionContext executionContext, Int32 i, Int32 count)
+         at AspNetCoreGeneratedDocument.Views_Opportunity_Create.<ExecuteAsync>b__40_2()
+         at Microsoft.AspNetCore.Mvc.Razor.RazorPage.RenderSectionAsyncCore(String sectionName, Boolean required)
+         at AspNetCoreGeneratedDocument.Views_Shared__Layout.<ExecuteAsync>b__16_1() in C:\Users\bhanu\OneDrive\Desktop\ACXIOMCRM\AcxiomCRM\Views\Shared\_Layout.cshtml:line 146
+         at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.SetOutputContentAsync()
+         at AspNetCoreGeneratedDocument.Views_Shared__Layout.ExecuteAsync()
+         at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+         at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+         at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+         at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+         at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+         at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+         at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+         at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+         at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+      --- End of stack trace from previous location ---
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+      --- End of stack trace from previous location ---
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+         at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+         at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+         at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+         --- End of inner exception stack trace ---
+         at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.HandleException(HttpContext context, ExceptionDispatchInfo edi)
+         at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.HandleException(HttpContext context, ExceptionDispatchInfo edi)
+         at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+         at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "FollowUps" AS "f"
+      WHERE "f"."Status" = 'Planned' AND "f"."FollowUpDate" < rtrim(rtrim(strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime', 'start of day'), '0'), '.')
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "f"."FollowUpId", "f"."AssignedTo", "f"."CreatedBy", "f"."CreatedDate", "f"."CustomerId", "f"."FollowUpDate", "f"."FollowUpType", "f"."LeadId", "f"."OpportunityId", "f"."Remarks", "f"."Status", "f"."Subject", "c"."CustomerId", "c"."Address", "c"."AssignedTo", "c"."City", "c"."CompanyName", "c"."CreatedBy", "c"."CreatedDate", "c"."CustomerCode", "c"."CustomerName", "c"."Email", "c"."ModifiedDate", "c"."Notes", "c"."Phone", "c"."State", "c"."Status", "l"."LeadId", "l"."AssignedTo", "l"."CompanyName", "l"."ConvertedCustomerId", "l"."CreatedBy", "l"."CreatedDate", "l"."CustomerId", "l"."Email", "l"."ExpectedValue", "l"."IsConverted", "l"."LeadCode", "l"."LeadName", "l"."ModifiedDate", "l"."Notes", "l"."Phone", "l"."Priority", "l"."Source", "l"."Status", "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."CreatedDate", "a"."Email", "a"."EmailConfirmed", "a"."FullName", "a"."IsActive", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+      FROM "FollowUps" AS "f"
+      LEFT JOIN "Customers" AS "c" ON "f"."CustomerId" = "c"."CustomerId"
+      LEFT JOIN "Leads" AS "l" ON "f"."LeadId" = "l"."LeadId"
+      LEFT JOIN "AspNetUsers" AS "a" ON "f"."AssignedTo" = "a"."Id"
+      ORDER BY "f"."FollowUpDate"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@normalizedRoleName='?' (Size = 14)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+      FROM "AspNetRoles" AS "a"
+      WHERE "a"."NormalizedName" = @normalizedRoleName
+      LIMIT 2
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@role_Id='?' (Size = 36)], CommandType='Text', CommandTimeout='30']
+      SELECT "a0"."Id", "a0"."AccessFailedCount", "a0"."ConcurrencyStamp", "a0"."CreatedDate", "a0"."Email", "a0"."EmailConfirmed", "a0"."FullName", "a0"."IsActive", "a0"."LockoutEnabled", "a0"."LockoutEnd", "a0"."NormalizedEmail", "a0"."NormalizedUserName", "a0"."PasswordHash", "a0"."PhoneNumber", "a0"."PhoneNumberConfirmed", "a0"."SecurityStamp", "a0"."TwoFactorEnabled", "a0"."UserName"
+      FROM "AspNetUserRoles" AS "a"
+      INNER JOIN "AspNetUsers" AS "a0" ON "a"."UserId" = "a0"."Id"
+      WHERE "a"."RoleId" = @role_Id
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "c"."CustomerId", "c"."Address", "c"."AssignedTo", "c"."City", "c"."CompanyName", "c"."CreatedBy", "c"."CreatedDate", "c"."CustomerCode", "c"."CustomerName", "c"."Email", "c"."ModifiedDate", "c"."Notes", "c"."Phone", "c"."State", "c"."Status"
+      FROM "Customers" AS "c"
+      WHERE "c"."Status" = 'Active'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "l"."LeadId", "l"."AssignedTo", "l"."CompanyName", "l"."ConvertedCustomerId", "l"."CreatedBy", "l"."CreatedDate", "l"."CustomerId", "l"."Email", "l"."ExpectedValue", "l"."IsConverted", "l"."LeadCode", "l"."LeadName", "l"."ModifiedDate", "l"."Notes", "l"."Phone", "l"."Priority", "l"."Source", "l"."Status"
+      FROM "Leads" AS "l"
+      WHERE "l"."Status" NOT IN ('Converted', 'Lost')
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "o"."OpportunityId", "o"."Amount", "o"."AssignedTo", "o"."CreatedBy", "o"."CreatedDate", "o"."CustomerId", "o"."ExpectedCloseDate", "o"."LeadId", "o"."ModifiedDate", "o"."Notes", "o"."OpportunityName", "o"."Probability", "o"."Stage", "o"."Status"
+      FROM "Opportunities" AS "o"
+      WHERE "o"."Status" = 'Open'
+fail: Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware[1]
+      An unhandled exception has occurred while executing the request.
+      System.InvalidOperationException: The partial view '_ValidationScriptsPartial' was not found. The following locations were searched:
+      /Views/FollowUp/_ValidationScriptsPartial.cshtml
+      /Views/Shared/_ValidationScriptsPartial.cshtml
+         at Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+         at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.<RunAsync>g__Awaited|0_0(Task task, TagHelperExecutionContext executionContext, Int32 i, Int32 count)
+         at AspNetCoreGeneratedDocument.Views_FollowUp_Create.<ExecuteAsync>b__31_2()
+         at Microsoft.AspNetCore.Mvc.Razor.RazorPage.RenderSectionAsyncCore(String sectionName, Boolean required)
+         at AspNetCoreGeneratedDocument.Views_Shared__Layout.<ExecuteAsync>b__16_1() in C:\Users\bhanu\OneDrive\Desktop\ACXIOMCRM\AcxiomCRM\Views\Shared\_Layout.cshtml:line 146
+         at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.SetOutputContentAsync()
+         at AspNetCoreGeneratedDocument.Views_Shared__Layout.ExecuteAsync()
+         at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+         at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+         at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+         at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+         at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+         at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+         at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+         at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+         at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+      --- End of stack trace from previous location ---
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+      --- End of stack trace from previous location ---
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+         at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+         at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+         at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+fail: Microsoft.AspNetCore.Server.Kestrel[13]
+      Connection id "0HNP8COM3Q782", Request id "0HNP8COM3Q782:00000010": An unhandled exception was thrown by the application.
+      System.InvalidOperationException: The exception handler configured on ExceptionHandlerOptions produced a 404 status response. This InvalidOperationException containing the original exception was thrown since this is often due to a misconfigured ExceptionHandlingPath. If the exception handler is expected to return 404 status responses then set AllowStatusCode404Response to true.
+       ---> System.InvalidOperationException: The partial view '_ValidationScriptsPartial' was not found. The following locations were searched:
+      /Views/FollowUp/_ValidationScriptsPartial.cshtml
+      /Views/Shared/_ValidationScriptsPartial.cshtml
+         at Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+         at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.<RunAsync>g__Awaited|0_0(Task task, TagHelperExecutionContext executionContext, Int32 i, Int32 count)
+         at AspNetCoreGeneratedDocument.Views_FollowUp_Create.<ExecuteAsync>b__31_2()
+         at Microsoft.AspNetCore.Mvc.Razor.RazorPage.RenderSectionAsyncCore(String sectionName, Boolean required)
+         at AspNetCoreGeneratedDocument.Views_Shared__Layout.<ExecuteAsync>b__16_1() in C:\Users\bhanu\OneDrive\Desktop\ACXIOMCRM\AcxiomCRM\Views\Shared\_Layout.cshtml:line 146
+         at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.SetOutputContentAsync()
+         at AspNetCoreGeneratedDocument.Views_Shared__Layout.ExecuteAsync()
+         at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+         at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+         at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+         at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+         at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+         at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+         at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+         at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+         at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+      --- End of stack trace from previous location ---
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+      --- End of stack trace from previous location ---
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+         at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+         at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+         at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+         --- End of inner exception stack trace ---
+         at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.HandleException(HttpContext context, ExceptionDispatchInfo edi)
+         at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.HandleException(HttpContext context, ExceptionDispatchInfo edi)
+         at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+         at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."ActivityId", "a"."ActivityDate", "a"."ActivityType", "a"."AssignedTo", "a"."CreatedBy", "a"."CreatedDate", "a"."CustomerId", "a"."Description", "a"."LeadId", "a"."Status", "a"."Subject", "c"."CustomerId", "c"."Address", "c"."AssignedTo", "c"."City", "c"."CompanyName", "c"."CreatedBy", "c"."CreatedDate", "c"."CustomerCode", "c"."CustomerName", "c"."Email", "c"."ModifiedDate", "c"."Notes", "c"."Phone", "c"."State", "c"."Status", "l"."LeadId", "l"."AssignedTo", "l"."CompanyName", "l"."ConvertedCustomerId", "l"."CreatedBy", "l"."CreatedDate", "l"."CustomerId", "l"."Email", "l"."ExpectedValue", "l"."IsConverted", "l"."LeadCode", "l"."LeadName", "l"."ModifiedDate", "l"."Notes", "l"."Phone", "l"."Priority", "l"."Source", "l"."Status", "a0"."Id", "a0"."AccessFailedCount", "a0"."ConcurrencyStamp", "a0"."CreatedDate", "a0"."Email", "a0"."EmailConfirmed", "a0"."FullName", "a0"."IsActive", "a0"."LockoutEnabled", "a0"."LockoutEnd", "a0"."NormalizedEmail", "a0"."NormalizedUserName", "a0"."PasswordHash", "a0"."PhoneNumber", "a0"."PhoneNumberConfirmed", "a0"."SecurityStamp", "a0"."TwoFactorEnabled", "a0"."UserName"
+      FROM "Activities" AS "a"
+      LEFT JOIN "Customers" AS "c" ON "a"."CustomerId" = "c"."CustomerId"
+      LEFT JOIN "Leads" AS "l" ON "a"."LeadId" = "l"."LeadId"
+      LEFT JOIN "AspNetUsers" AS "a0" ON "a"."AssignedTo" = "a0"."Id"
+      ORDER BY "a"."ActivityDate" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@normalizedRoleName='?' (Size = 14)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+      FROM "AspNetRoles" AS "a"
+      WHERE "a"."NormalizedName" = @normalizedRoleName
+      LIMIT 2
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@role_Id='?' (Size = 36)], CommandType='Text', CommandTimeout='30']
+      SELECT "a0"."Id", "a0"."AccessFailedCount", "a0"."ConcurrencyStamp", "a0"."CreatedDate", "a0"."Email", "a0"."EmailConfirmed", "a0"."FullName", "a0"."IsActive", "a0"."LockoutEnabled", "a0"."LockoutEnd", "a0"."NormalizedEmail", "a0"."NormalizedUserName", "a0"."PasswordHash", "a0"."PhoneNumber", "a0"."PhoneNumberConfirmed", "a0"."SecurityStamp", "a0"."TwoFactorEnabled", "a0"."UserName"
+      FROM "AspNetUserRoles" AS "a"
+      INNER JOIN "AspNetUsers" AS "a0" ON "a"."UserId" = "a0"."Id"
+      WHERE "a"."RoleId" = @role_Id
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "c"."CustomerId", "c"."Address", "c"."AssignedTo", "c"."City", "c"."CompanyName", "c"."CreatedBy", "c"."CreatedDate", "c"."CustomerCode", "c"."CustomerName", "c"."Email", "c"."ModifiedDate", "c"."Notes", "c"."Phone", "c"."State", "c"."Status"
+      FROM "Customers" AS "c"
+      WHERE "c"."Status" = 'Active'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "l"."LeadId", "l"."AssignedTo", "l"."CompanyName", "l"."ConvertedCustomerId", "l"."CreatedBy", "l"."CreatedDate", "l"."CustomerId", "l"."Email", "l"."ExpectedValue", "l"."IsConverted", "l"."LeadCode", "l"."LeadName", "l"."ModifiedDate", "l"."Notes", "l"."Phone", "l"."Priority", "l"."Source", "l"."Status"
+      FROM "Leads" AS "l"
+      WHERE "l"."Status" NOT IN ('Converted', 'Lost')
+fail: Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware[1]
+      An unhandled exception has occurred while executing the request.
+      System.InvalidOperationException: The partial view '_ValidationScriptsPartial' was not found. The following locations were searched:
+      /Views/Activity/_ValidationScriptsPartial.cshtml
+      /Views/Shared/_ValidationScriptsPartial.cshtml
+         at Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+         at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.<RunAsync>g__Awaited|0_0(Task task, TagHelperExecutionContext executionContext, Int32 i, Int32 count)
+         at AspNetCoreGeneratedDocument.Views_Activity_Create.<ExecuteAsync>b__31_2()
+         at Microsoft.AspNetCore.Mvc.Razor.RazorPage.RenderSectionAsyncCore(String sectionName, Boolean required)
+         at AspNetCoreGeneratedDocument.Views_Shared__Layout.<ExecuteAsync>b__16_1() in C:\Users\bhanu\OneDrive\Desktop\ACXIOMCRM\AcxiomCRM\Views\Shared\_Layout.cshtml:line 146
+         at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.SetOutputContentAsync()
+         at AspNetCoreGeneratedDocument.Views_Shared__Layout.ExecuteAsync()
+         at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+         at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+         at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+         at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+         at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+         at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+         at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+         at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+         at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+      --- End of stack trace from previous location ---
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+      --- End of stack trace from previous location ---
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+         at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+         at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+         at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+fail: Microsoft.AspNetCore.Server.Kestrel[13]
+      Connection id "0HNP8COM3Q782", Request id "0HNP8COM3Q782:00000012": An unhandled exception was thrown by the application.
+      System.InvalidOperationException: The exception handler configured on ExceptionHandlerOptions produced a 404 status response. This InvalidOperationException containing the original exception was thrown since this is often due to a misconfigured ExceptionHandlingPath. If the exception handler is expected to return 404 status responses then set AllowStatusCode404Response to true.
+       ---> System.InvalidOperationException: The partial view '_ValidationScriptsPartial' was not found. The following locations were searched:
+      /Views/Activity/_ValidationScriptsPartial.cshtml
+      /Views/Shared/_ValidationScriptsPartial.cshtml
+         at Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper.ProcessAsync(TagHelperContext context, TagHelperOutput output)
+         at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner.<RunAsync>g__Awaited|0_0(Task task, TagHelperExecutionContext executionContext, Int32 i, Int32 count)
+         at AspNetCoreGeneratedDocument.Views_Activity_Create.<ExecuteAsync>b__31_2()
+         at Microsoft.AspNetCore.Mvc.Razor.RazorPage.RenderSectionAsyncCore(String sectionName, Boolean required)
+         at AspNetCoreGeneratedDocument.Views_Shared__Layout.<ExecuteAsync>b__16_1() in C:\Users\bhanu\OneDrive\Desktop\ACXIOMCRM\AcxiomCRM\Views\Shared\_Layout.cshtml:line 146
+         at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.SetOutputContentAsync()
+         at AspNetCoreGeneratedDocument.Views_Shared__Layout.ExecuteAsync()
+         at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+         at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+         at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+         at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+         at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+         at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+         at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+         at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+         at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+      --- End of stack trace from previous location ---
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+      --- End of stack trace from previous location ---
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+         at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+         at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+         at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+         --- End of inner exception stack trace ---
+         at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.HandleException(HttpContext context, ExceptionDispatchInfo edi)
+         at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.HandleException(HttpContext context, ExceptionDispatchInfo edi)
+         at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl.<Invoke>g__Awaited|10_0(ExceptionHandlerMiddlewareImpl middleware, HttpContext context, Task task)
+         at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."CreatedDate", "a"."Email", "a"."EmailConfirmed", "a"."FullName", "a"."IsActive", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+      FROM "AspNetUsers" AS "a"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@userId='?' (Size = 36)], CommandType='Text', CommandTimeout='30']
+      SELECT "a0"."Name"
+      FROM "AspNetUserRoles" AS "a"
+      INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+      WHERE "a"."UserId" = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@userId='?' (Size = 36)], CommandType='Text', CommandTimeout='30']
+      SELECT "a0"."Name"
+      FROM "AspNetUserRoles" AS "a"
+      INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+      WHERE "a"."UserId" = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@userId='?' (Size = 36)], CommandType='Text', CommandTimeout='30']
+      SELECT "a0"."Name"
+      FROM "AspNetUserRoles" AS "a"
+      INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+      WHERE "a"."UserId" = @userId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@action='?' (Size = 5), @p='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."AuditLogId", "a"."Action", "a"."CreatedDate", "a"."EntityName", "a"."IpAddress", "a"."NewValue", "a"."OldValue", "a"."RecordId", "a"."Result", "a"."UserId", "a"."UserName"
+      FROM "AuditLogs" AS "a"
+      WHERE "a"."Action" = @action
+      ORDER BY "a"."CreatedDate" DESC
+      LIMIT @p
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "c"."CustomerId", "c"."Address", "c"."AssignedTo", "c"."City", "c"."CompanyName", "c"."CreatedBy", "c"."CreatedDate", "c"."CustomerCode", "c"."CustomerName", "c"."Email", "c"."ModifiedDate", "c"."Notes", "c"."Phone", "c"."State", "c"."Status", "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."CreatedDate", "a"."Email", "a"."EmailConfirmed", "a"."FullName", "a"."IsActive", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+      FROM "Customers" AS "c"
+      LEFT JOIN "AspNetUsers" AS "a" ON "c"."AssignedTo" = "a"."Id"
+      ORDER BY "c"."CreatedDate" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "l"."LeadId", "l"."AssignedTo", "l"."CompanyName", "l"."ConvertedCustomerId", "l"."CreatedBy", "l"."CreatedDate", "l"."CustomerId", "l"."Email", "l"."ExpectedValue", "l"."IsConverted", "l"."LeadCode", "l"."LeadName", "l"."ModifiedDate", "l"."Notes", "l"."Phone", "l"."Priority", "l"."Source", "l"."Status", "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."CreatedDate", "a"."Email", "a"."EmailConfirmed", "a"."FullName", "a"."IsActive", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+      FROM "Leads" AS "l"
+      LEFT JOIN "AspNetUsers" AS "a" ON "l"."AssignedTo" = "a"."Id"
+      ORDER BY "l"."CreatedDate" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "o"."OpportunityId", "o"."Amount", "o"."AssignedTo", "o"."CreatedBy", "o"."CreatedDate", "o"."CustomerId", "o"."ExpectedCloseDate", "o"."LeadId", "o"."ModifiedDate", "o"."Notes", "o"."OpportunityName", "o"."Probability", "o"."Stage", "o"."Status", "c"."CustomerId", "c"."Address", "c"."AssignedTo", "c"."City", "c"."CompanyName", "c"."CreatedBy", "c"."CreatedDate", "c"."CustomerCode", "c"."CustomerName", "c"."Email", "c"."ModifiedDate", "c"."Notes", "c"."Phone", "c"."State", "c"."Status", "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."CreatedDate", "a"."Email", "a"."EmailConfirmed", "a"."FullName", "a"."IsActive", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+      FROM "Opportunities" AS "o"
+      LEFT JOIN "Customers" AS "c" ON "o"."CustomerId" = "c"."CustomerId"
+      LEFT JOIN "AspNetUsers" AS "a" ON "o"."AssignedTo" = "a"."Id"
+      ORDER BY "o"."CreatedDate" DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "o"."OpportunityId", "o"."Amount", "o"."AssignedTo", "o"."CreatedBy", "o"."CreatedDate", "o"."CustomerId", "o"."ExpectedCloseDate", "o"."LeadId", "o"."ModifiedDate", "o"."Notes", "o"."OpportunityName", "o"."Probability", "o"."Stage", "o"."Status", "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."CreatedDate", "a"."Email", "a"."EmailConfirmed", "a"."FullName", "a"."IsActive", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+      FROM "Opportunities" AS "o"
+      LEFT JOIN "AspNetUsers" AS "a" ON "o"."AssignedTo" = "a"."Id"
+      WHERE "o"."Status" = 'Open'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "FollowUps" AS "f"
+      WHERE "f"."Status" = 'Planned' AND "f"."FollowUpDate" < rtrim(rtrim(strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime', 'start of day'), '0'), '.')
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "f"."FollowUpId", "f"."AssignedTo", "f"."CreatedBy", "f"."CreatedDate", "f"."CustomerId", "f"."FollowUpDate", "f"."FollowUpType", "f"."LeadId", "f"."OpportunityId", "f"."Remarks", "f"."Status", "f"."Subject", "c"."CustomerId", "c"."Address", "c"."AssignedTo", "c"."City", "c"."CompanyName", "c"."CreatedBy", "c"."CreatedDate", "c"."CustomerCode", "c"."CustomerName", "c"."Email", "c"."ModifiedDate", "c"."Notes", "c"."Phone", "c"."State", "c"."Status", "l"."LeadId", "l"."AssignedTo", "l"."CompanyName", "l"."ConvertedCustomerId", "l"."CreatedBy", "l"."CreatedDate", "l"."CustomerId", "l"."Email", "l"."ExpectedValue", "l"."IsConverted", "l"."LeadCode", "l"."LeadName", "l"."ModifiedDate", "l"."Notes", "l"."Phone", "l"."Priority", "l"."Source", "l"."Status", "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."CreatedDate", "a"."Email", "a"."EmailConfirmed", "a"."FullName", "a"."IsActive", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+      FROM "FollowUps" AS "f"
+      LEFT JOIN "Customers" AS "c" ON "f"."CustomerId" = "c"."CustomerId"
+      LEFT JOIN "Leads" AS "l" ON "f"."LeadId" = "l"."LeadId"
+      LEFT JOIN "AspNetUsers" AS "a" ON "f"."AssignedTo" = "a"."Id"
+      ORDER BY "f"."FollowUpDate"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "l"."LeadId", "l"."AssignedTo", "l"."CompanyName", "l"."ConvertedCustomerId", "l"."CreatedBy", "l"."CreatedDate", "l"."CustomerId", "l"."Email", "l"."ExpectedValue", "l"."IsConverted", "l"."LeadCode", "l"."LeadName", "l"."ModifiedDate", "l"."Notes", "l"."Phone", "l"."Priority", "l"."Source", "l"."Status"
+      FROM "Leads" AS "l"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."UserId", "a"."UserName", COUNT(*) AS "Count"
+      FROM "AuditLogs" AS "a"
+      GROUP BY "a"."UserId", "a"."UserName"
+      ORDER BY COUNT(*) DESC
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@action='?' (Size = 5), @p='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."AuditLogId", "a"."Action", "a"."CreatedDate", "a"."EntityName", "a"."IpAddress", "a"."NewValue", "a"."OldValue", "a"."RecordId", "a"."Result", "a"."UserId", "a"."UserName"
+      FROM "AuditLogs" AS "a"
+      WHERE "a"."Action" = @action
+      ORDER BY "a"."CreatedDate" DESC
+      LIMIT @p
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Customers" AS "c"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Leads" AS "l"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Leads" AS "l"
+      WHERE "l"."Status" NOT IN ('Converted', 'Lost')
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Opportunities" AS "o"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Opportunities" AS "o"
+      WHERE "o"."Status" = 'Open'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Opportunities" AS "o"
+      WHERE "o"."Status" = 'Won'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Opportunities" AS "o"
+      WHERE "o"."Status" = 'Lost'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COALESCE(ef_sum("o"."Amount"), '0.0')
+      FROM "Opportunities" AS "o"
+      WHERE "o"."Status" = 'Open'
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "FollowUps" AS "f"
+      WHERE "f"."Status" = 'Planned' AND "f"."FollowUpDate" >= rtrim(rtrim(strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime', 'start of day'), '0'), '.')
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "FollowUps" AS "f"
+      WHERE "f"."Status" = 'Planned' AND "f"."FollowUpDate" < rtrim(rtrim(strftime('%Y-%m-%d %H:%M:%f', 'now', 'localtime', 'start of day'), '0'), '.')
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "l"."Status" AS "Key", COUNT(*) AS "Count"
+      FROM "Leads" AS "l"
+      GROUP BY "l"."Status"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "o"."Stage" AS "Key", COALESCE(ef_sum("o"."Amount"), '0.0') AS "Total"
+      FROM "Opportunities" AS "o"
+      GROUP BY "o"."Stage"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@sixMonthsAgo='?' (DbType = DateTime)], CommandType='Text', CommandTimeout='30']
+      SELECT "o0"."Year", "o0"."Month", COALESCE(ef_sum("o0"."Amount"), '0.0') AS "Total"
+      FROM (
+          SELECT "o"."Amount", CAST(strftime('%Y', "o"."ModifiedDate") AS INTEGER) AS "Year", CAST(strftime('%m', "o"."ModifiedDate") AS INTEGER) AS "Month"
+          FROM "Opportunities" AS "o"
+          WHERE "o"."Status" = 'Won' AND "o"."ModifiedDate" >= @sixMonthsAgo
+      ) AS "o0"
+      GROUP BY "o0"."Year", "o0"."Month"

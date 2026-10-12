@@ -1,0 +1,71 @@
+@model IEnumerable<AcxiomCRM.Models.Customer>
+@{ ViewData["Title"] = "Customers"; }
+
+<div class="page-header">
+    <h4><i class="bi bi-people me-2"></i>Customers</h4>
+    <a asp-action="Create" class="btn btn-crm"><i class="bi bi-plus-lg me-1"></i>New Customer</a>
+</div>
+
+<div class="filter-bar">
+    <form method="get" class="row g-2 align-items-end">
+        <div class="col-md-5">
+            <input name="search" value="@ViewBag.Search" class="form-control" placeholder="Search name, email, phone, company…" />
+        </div>
+        <div class="col-md-3">
+            <select name="status" class="form-select">
+                <option value="">All Status</option>
+                <option value="Active" selected="@(ViewBag.Status == "Active")">Active</option>
+                <option value="Inactive" selected="@(ViewBag.Status == "Inactive")">Inactive</option>
+            </select>
+        </div>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-primary"><i class="bi bi-search me-1"></i>Filter</button>
+            <a asp-action="Index" class="btn btn-outline-secondary ms-1">Clear</a>
+        </div>
+    </form>
+</div>
+
+<div class="crm-table">
+    <table class="table table-hover mb-0">
+        <thead>
+            <tr>
+                <th>Code</th><th>Name</th><th>Email</th><th>Phone</th>
+                <th>Company</th><th>Status</th><th>Assigned To</th><th>Created</th><th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var c in Model)
+            {
+                <tr>
+                    <td><span class="badge bg-secondary">@c.CustomerCode</span></td>
+                    <td class="fw-semibold">@c.CustomerName</td>
+                    <td>@c.Email</td>
+                    <td>@c.Phone</td>
+                    <td>@c.CompanyName</td>
+                    <td>
+                        <span class="status-badge @(c.Status == "Active" ? "bg-success text-white" : "bg-secondary text-white")">
+                            @c.Status
+                        </span>
+                    </td>
+                    <td>@(c.AssignedUser?.FullName ?? "—")</td>
+                    <td class="text-muted small">@c.CreatedDate.ToString("dd MMM yyyy")</td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@c.CustomerId" class="btn btn-sm btn-outline-primary me-1" title="View"><i class="bi bi-eye"></i></a>
+                        <a asp-action="Edit" asp-route-id="@c.CustomerId" class="btn btn-sm btn-outline-secondary me-1" title="Edit"><i class="bi bi-pencil"></i></a>
+                        @if (User.IsInRole("Admin") || User.IsInRole("Manager"))
+                        {
+                            <form asp-action="Delete" asp-route-id="@c.CustomerId" method="post" class="d-inline">
+                                @Html.AntiForgeryToken()
+                                <button type="submit" class="btn btn-sm btn-outline-danger" data-confirm="Deactivate this customer?" title="Deactivate"><i class="bi bi-slash-circle"></i></button>
+                            </form>
+                        }
+                    </td>
+                </tr>
+            }
+            @if (!Model.Any())
+            {
+                <tr><td colspan="9" class="text-center text-muted py-4">No customers found.</td></tr>
+            }
+        </tbody>
+    </table>
+</div>

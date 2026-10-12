@@ -1,0 +1,126 @@
+@model AcxiomCRM.Models.Activity
+@{ ViewData["Title"] = "Log Activity"; }
+
+<div class="page-header">
+    <h4><i class="bi bi-journal-plus me-2"></i>Log Activity</h4>
+    <a asp-action="Index" class="btn btn-outline-secondary"><i class="bi bi-arrow-left me-1"></i>Back to List</a>
+</div>
+
+<div class="row">
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-body">
+                <form asp-action="Create" method="post">
+                    <div class="row g-3">
+                        <!-- Activity Type -->
+                        <div class="col-md-4">
+                            <label asp-for="ActivityType" class="form-label required">Activity Type</label>
+                            <select asp-for="ActivityType" class="form-select" asp-items="ViewBag.Types">
+                                <option value="">-- Select Type --</option>
+                            </select>
+                            <span asp-validation-for="ActivityType" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Activity Date -->
+                        <div class="col-md-4">
+                            <label asp-for="ActivityDate" class="form-label required">Activity Date</label>
+                            <input asp-for="ActivityDate" type="date" class="form-control" />
+                            <span asp-validation-for="ActivityDate" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Status -->
+                        <div class="col-md-4">
+                            <label asp-for="Status" class="form-label required">Status</label>
+                            <select asp-for="Status" class="form-select" asp-items="ViewBag.Statuses"></select>
+                            <span asp-validation-for="Status" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Subject -->
+                        <div class="col-12">
+                            <label asp-for="Subject" class="form-label required">Subject</label>
+                            <input asp-for="Subject" class="form-control" placeholder="e.g., Discussed pricing and requirements" />
+                            <span asp-validation-for="Subject" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Description -->
+                        <div class="col-12">
+                            <label asp-for="Description" class="form-label">Description</label>
+                            <textarea asp-for="Description" class="form-control" rows="4" placeholder="Detailed notes about the activity..."></textarea>
+                            <span asp-validation-for="Description" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Assigned To -->
+                        <div class="col-md-6">
+                            <label asp-for="AssignedTo" class="form-label">Assign To</label>
+                            <select asp-for="AssignedTo" class="form-select" asp-items="ViewBag.Users">
+                                <option value="">-- Select Sales Executive --</option>
+                            </select>
+                            <span asp-validation-for="AssignedTo" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Related To -->
+                        <div class="col-12">
+                            <label class="form-label">Related To</label>
+                            <small class="text-muted">(Optional - link to Customer or Lead)</small>
+                        </div>
+
+                        <!-- Customer -->
+                        <div class="col-md-6">
+                            <label asp-for="CustomerId" class="form-label">Customer</label>
+                            <select asp-for="CustomerId" class="form-select" asp-items="ViewBag.Customers">
+                                <option value="">-- Select Customer --</option>
+                            </select>
+                            <span asp-validation-for="CustomerId" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Lead -->
+                        <div class="col-md-6">
+                            <label asp-for="LeadId" class="form-label">Lead</label>
+                            <select asp-for="LeadId" class="form-select" asp-items="ViewBag.Leads">
+                                <option value="">-- Select Lead --</option>
+                            </select>
+                            <span asp-validation-for="LeadId" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Actions -->
+                        <div class="col-12 d-flex gap-2">
+                            <button type="submit" class="btn btn-primary px-4">
+                                <i class="bi bi-check-circle me-1"></i>Log Activity
+                            </button>
+                            <a asp-action="Index" class="btn btn-outline-secondary">Cancel</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <div class="card bg-light">
+            <div class="card-body">
+                <h6 class="fw-bold mb-3"><i class="bi bi-info-circle me-2"></i>Activity Types</h6>
+                <ul class="small mb-0">
+                    <li class="mb-2"><strong><i class="bi bi-telephone text-primary"></i> Call:</strong> Phone conversation with customer/lead</li>
+                    <li class="mb-2"><strong><i class="bi bi-people text-success"></i> Meeting:</strong> In-person or virtual meeting</li>
+                    <li class="mb-2"><strong><i class="bi bi-envelope text-info"></i> Email:</strong> Email communication sent/received</li>
+                    <li class="mb-2"><strong><i class="bi bi-check-square text-warning"></i> Task:</strong> Any other task or activity</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card mt-3">
+            <div class="card-body">
+                <h6 class="fw-bold mb-3">Tips</h6>
+                <ul class="small mb-0">
+                    <li class="mb-2">Log activities immediately after completion for accurate records</li>
+                    <li class="mb-2">Include key discussion points and action items in description</li>
+                    <li class="mb-2">Link to relevant Customer or Lead for better tracking</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

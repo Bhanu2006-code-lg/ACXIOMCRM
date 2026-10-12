@@ -1,0 +1,119 @@
+@model AcxiomCRM.Models.Activity
+@{ ViewData["Title"] = "Edit Activity"; }
+
+<div class="page-header">
+    <h4><i class="bi bi-pencil me-2"></i>Edit Activity</h4>
+    <a asp-action="Index" class="btn btn-outline-secondary"><i class="bi bi-arrow-left me-1"></i>Back to List</a>
+</div>
+
+<div class="row">
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-body">
+                <form asp-action="Edit" method="post">
+                    <input type="hidden" asp-for="ActivityId" />
+                    
+                    <div class="row g-3">
+                        <!-- Activity Type -->
+                        <div class="col-md-4">
+                            <label asp-for="ActivityType" class="form-label required">Activity Type</label>
+                            <select asp-for="ActivityType" class="form-select" asp-items="ViewBag.Types">
+                                <option value="">-- Select Type --</option>
+                            </select>
+                            <span asp-validation-for="ActivityType" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Activity Date -->
+                        <div class="col-md-4">
+                            <label asp-for="ActivityDate" class="form-label required">Activity Date</label>
+                            <input asp-for="ActivityDate" type="date" class="form-control" />
+                            <span asp-validation-for="ActivityDate" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Status -->
+                        <div class="col-md-4">
+                            <label asp-for="Status" class="form-label required">Status</label>
+                            <select asp-for="Status" class="form-select" asp-items="ViewBag.Statuses"></select>
+                            <span asp-validation-for="Status" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Subject -->
+                        <div class="col-12">
+                            <label asp-for="Subject" class="form-label required">Subject</label>
+                            <input asp-for="Subject" class="form-control" />
+                            <span asp-validation-for="Subject" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Description -->
+                        <div class="col-12">
+                            <label asp-for="Description" class="form-label">Description</label>
+                            <textarea asp-for="Description" class="form-control" rows="4"></textarea>
+                            <span asp-validation-for="Description" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Assigned To -->
+                        <div class="col-md-6">
+                            <label asp-for="AssignedTo" class="form-label">Assign To</label>
+                            <select asp-for="AssignedTo" class="form-select" asp-items="ViewBag.Users">
+                                <option value="">-- Select Sales Executive --</option>
+                            </select>
+                            <span asp-validation-for="AssignedTo" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Related To -->
+                        <div class="col-12">
+                            <label class="form-label">Related To</label>
+                            <small class="text-muted">(Optional)</small>
+                        </div>
+
+                        <!-- Customer -->
+                        <div class="col-md-6">
+                            <label asp-for="CustomerId" class="form-label">Customer</label>
+                            <select asp-for="CustomerId" class="form-select" asp-items="ViewBag.Customers">
+                                <option value="">-- Select Customer --</option>
+                            </select>
+                            <span asp-validation-for="CustomerId" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Lead -->
+                        <div class="col-md-6">
+                            <label asp-for="LeadId" class="form-label">Lead</label>
+                            <select asp-for="LeadId" class="form-select" asp-items="ViewBag.Leads">
+                                <option value="">-- Select Lead --</option>
+                            </select>
+                            <span asp-validation-for="LeadId" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Actions -->
+                        <div class="col-12 d-flex gap-2">
+                            <button type="submit" class="btn btn-primary px-4">
+                                <i class="bi bi-check-circle me-1"></i>Update Activity
+                            </button>
+                            <a asp-action="Index" class="btn btn-outline-secondary">Cancel</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <div class="card">
+            <div class="card-body">
+                <h6 class="fw-bold mb-3">Activity Info</h6>
+                <div class="small">
+                    <div class="mb-2">
+                        <strong>Created:</strong> @Model.CreatedDate.ToString("dd MMM yyyy HH:mm")
+                    </div>
+                    <div class="mb-2">
+                        <strong>Created By:</strong> @(Model.CreatedBy ?? "System")
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

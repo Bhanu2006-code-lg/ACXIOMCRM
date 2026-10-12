@@ -1,0 +1,81 @@
+@model IEnumerable<dynamic>
+@{ ViewData["Title"] = "User Activity Report"; }
+
+<div class="page-header">
+    <div>
+        <h4><i class="bi bi-person-check me-2"></i>User Activity Report</h4>
+        <span class="text-muted small">Monitor user activity and action counts</span>
+    </div>
+    <a asp-action="Index" class="btn btn-outline-secondary"><i class="bi bi-arrow-left me-1"></i>Back to Reports</a>
+</div>
+
+<!-- Report Table -->
+<div class="card">
+    <div class="card-body">
+        @if (Model != null && Model.Count() > 0)
+        {
+            <div class="table-responsive">
+                <table class="table table-striped table-hover align-middle">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>User ID</th>
+                            <th>User Name</th>
+                            <th class="text-center">Action Count</th>
+                            <th style="width: 40%;">Activity Distribution</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            var maxCount = Model.Max(x => (int)x.Count);
+                        }
+                        @foreach (var user in Model)
+                        {
+                            var percentage = maxCount > 0 ? (double)user.Count / maxCount * 100 : 0;
+                            <tr>
+                                <td><code>@user.UserId</code></td>
+                                <td><strong>@user.UserName</strong></td>
+                                <td class="text-center"><span class="badge bg-primary fs-6">@user.Count</span></td>
+                                <td>
+                                    <div class="progress" style="height: 24px;">
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: @percentage%">
+                                            @user.Count actions
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="mt-3 p-3 bg-light rounded">
+                <div class="row text-center">
+                    <div class="col-md-4">
+                        <h5 class="text-primary">@Model.Count()</h5>
+                        <small class="text-muted">Active Users</small>
+                    </div>
+                    <div class="col-md-4">
+                        <h5 class="text-success">@Model.Sum(x => (int)x.Count)</h5>
+                        <small class="text-muted">Total Actions</small>
+                    </div>
+                    <div class="col-md-4">
+                        <h5 class="text-info">@((int)Model.Average(x => (double)x.Count))</h5>
+                        <small class="text-muted">Average Actions per User</small>
+                    </div>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="text-center py-5">
+                <i class="bi bi-person-check text-muted" style="font-size: 4rem;"></i>
+                <p class="text-muted mt-3">No user activity data found.</p>
+            </div>
+        }
+    </div>
+</div>
+
+<div class="alert alert-info mt-4">
+    <i class="bi bi-info-circle me-2"></i>
+    <strong>Note:</strong> This report shows the number of audit log entries per user. Higher counts indicate more system activity.
+</div>

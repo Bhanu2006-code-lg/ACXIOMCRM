@@ -1,0 +1,80 @@
+@model IEnumerable<AcxiomCRM.Models.Lead>
+@{ ViewData["Title"] = "Leads"; }
+
+<div class="page-header">
+    <h4><i class="bi bi-funnel me-2"></i>Leads</h4>
+    <a asp-action="Create" class="btn btn-crm"><i class="bi bi-plus-lg me-1"></i>New Lead</a>
+</div>
+
+<div class="filter-bar">
+    <form method="get" class="row g-2 align-items-end">
+        <div class="col-md-5">
+            <input name="search" value="@ViewBag.Search" class="form-control" placeholder="Search name, email, company…" />
+        </div>
+        <div class="col-md-3">
+            <select name="status" class="form-select">
+                <option value="">All Status</option>
+                @foreach (var s in new[] { "New","Contacted","Qualified","Unqualified","Converted","Lost" })
+                {
+                    <option value="@s" selected="@(ViewBag.Status == s)">@s</option>
+                }
+            </select>
+        </div>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-primary"><i class="bi bi-search me-1"></i>Filter</button>
+            <a asp-action="Index" class="btn btn-outline-secondary ms-1">Clear</a>
+        </div>
+    </form>
+</div>
+
+<div class="crm-table">
+    <table class="table table-hover mb-0">
+        <thead>
+            <tr><th>Code</th><th>Name</th><th>Email</th><th>Phone</th><th>Source</th><th>Status</th><th>Priority</th><th>Assigned</th><th>Actions</th></tr>
+        </thead>
+        <tbody>
+            @foreach (var l in Model)
+            {
+                <tr>
+                    <td><span class="badge bg-secondary">@l.LeadCode</span></td>
+                    <td class="fw-semibold">@l.LeadName</td>
+                    <td>@l.Email</td>
+                    <td>@l.Phone</td>
+                    <td>@l.Source</td>
+                    <td>
+                        @{
+                            var sc = l.Status switch { "New" => "bg-info text-dark", "Contacted" => "bg-primary", "Qualified" => "bg-success", "Converted" => "bg-teal text-white", "Lost" => "bg-danger", _ => "bg-secondary" };
+                        }
+                        <span class="status-badge @sc text-white">@l.Status</span>
+                    </td>
+                    <td>
+                        @{
+                            var pc = l.Priority == "High" ? "bg-danger" : l.Priority == "Medium" ? "bg-warning text-dark" : "bg-secondary";
+                        }
+                        <span class="badge @pc">@l.Priority</span>
+                    </td>
+                    <td>@(l.AssignedUser?.FullName ?? "—")</td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@l.LeadId" class="btn btn-sm btn-outline-primary me-1"><i class="bi bi-eye"></i></a>
+                        <a asp-action="Edit" asp-route-id="@l.LeadId" class="btn btn-sm btn-outline-secondary me-1"><i class="bi bi-pencil"></i></a>
+                        @if (l.Status == "Qualified" && !l.IsConverted)
+                        {
+                            <form asp-action="Convert" asp-route-id="@l.LeadId" method="post" class="d-inline">
+                                @Html.AntiForgeryToken()
+                                <button type="submit" class="btn btn-sm btn-outline-success me-1" data-confirm="Convert this lead to a customer?" title="Convert"><i class="bi bi-arrow-right-circle"></i></button>
+                            </form>
+                        }
+                        @if (User.IsInRole("Admin") || User.IsInRole("Manager"))
+                        {
+                            <form asp-action="Delete" asp-route-id="@l.LeadId" method="post" class="d-inline">
+                                @Html.AntiForgeryToken()
+                                <button type="submit" class="btn btn-sm btn-outline-danger" data-confirm="Mark this lead as Lost?"><i class="bi bi-x-circle"></i></button>
+                            </form>
+                        }
+                    </td>
+                </tr>
+            }
+            @if (!Model.Any()) { <tr><td colspan="9" class="text-center text-muted py-4">No leads found.</td></tr> }
+        </tbody>
+    </table>
+</div>

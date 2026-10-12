@@ -1,0 +1,144 @@
+@model List<AcxiomCRM.ViewModels.UserListViewModel>
+@{ ViewData["Title"] = "User Management"; }
+
+<div class="page-header">
+    <div>
+        <h4><i class="bi bi-people me-2"></i>User Management</h4>
+        <span class="text-muted small">Manage users, roles, and permissions</span>
+    </div>
+    <a asp-controller="Account" asp-action="Register" class="btn btn-primary"><i class="bi bi-person-plus me-1"></i>Add User</a>
+</div>
+
+<!-- Search -->
+<div class="card mb-3">
+    <div class="card-body">
+        <form method="get" class="row g-3">
+            <div class="col-md-6">
+                <input type="text" name="search" value="@ViewBag.Search" class="form-control" placeholder="Search by name or email..." />
+            </div>
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-secondary w-100"><i class="bi bi-search me-1"></i>Search</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show">
+        <i class="bi bi-check-circle me-2"></i>@TempData["Success"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+}
+
+<!-- Users Table -->
+<div class="card">
+    <div class="card-body">
+        @if (Model.Any())
+        {
+            <div class="table-responsive">
+                <table class="table table-hover align-middle">
+                    <thead>
+                        <tr>
+                            <th>Full Name</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Status</th>
+                            <th>Lockout</th>
+                            <th>Created Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var user in Model)
+                        {
+                            <tr>
+                                <td><strong>@user.FullName</strong></td>
+                                <td><a href="mailto:@user.Email">@user.Email</a></td>
+                                <td>
+                                    @{
+                                        var roleBadge = user.Role switch
+                                        {
+                                            "Admin" => "badge bg-danger",
+                                            "Manager" => "badge bg-primary",
+                                            "SalesExecutive" => "badge bg-success",
+                                            _ => "badge bg-secondary"
+                                        };
+                                    }
+                                    <span class="@roleBadge">@user.Role</span>
+                                </td>
+                                <td>
+                                    @if (user.IsActive)
+                                    {
+                                        <span class="badge bg-success">Active</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-secondary">Inactive</span>
+                                    }
+                                </td>
+                                <td>
+                                    @if (user.IsLockedOut)
+                                    {
+                                        <span class="badge bg-danger"><i class="bi bi-lock-fill me-1"></i>Locked</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="text-muted">-</span>
+                                    }
+                                </td>
+                                <td><small>@user.CreatedDate.ToString("dd MMM yyyy")</small></td>
+                                <td>
+                                    <div class="btn-group btn-group-sm">
+                                        <a asp-action="Edit" asp-route-id="@user.Id" class="btn btn-outline-primary" title="Edit">
+                                            <i class="bi bi-pencil"></i>
+                                        </a>
+                                        <a asp-action="ResetPassword" asp-route-id="@user.Id" class="btn btn-outline-warning" title="Reset Password">
+                                            <i class="bi bi-key"></i>
+                                        </a>
+                                        @if (user.IsLockedOut)
+                                        {
+                                            <form asp-action="Unlock" asp-route-id="@user.Id" method="post" class="d-inline">
+                                                <button type="submit" class="btn btn-outline-success" title="Unlock Account">
+                                                    <i class="bi bi-unlock"></i>
+                                                </button>
+                                            </form>
+                                        }
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="mt-3 p-3 bg-light rounded">
+                <div class="row text-center">
+                    <div class="col-md-3">
+                        <h5 class="text-danger">@Model.Count(u => u.Role == "Admin")</h5>
+                        <small class="text-muted">Admins</small>
+                    </div>
+                    <div class="col-md-3">
+                        <h5 class="text-primary">@Model.Count(u => u.Role == "Manager")</h5>
+                        <small class="text-muted">Managers</small>
+                    </div>
+                    <div class="col-md-3">
+                        <h5 class="text-success">@Model.Count(u => u.Role == "SalesExecutive")</h5>
+                        <small class="text-muted">Sales Executives</small>
+                    </div>
+                    <div class="col-md-3">
+                        <h5 class="text-warning">@Model.Count(u => u.IsLockedOut)</h5>
+                        <small class="text-muted">Locked</small>
+                    </div>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="text-center py-5">
+                <i class="bi bi-people text-muted" style="font-size: 4rem;"></i>
+                <p class="text-muted mt-3">No users found.</p>
+            </div>
+        }
+    </div>
+</div>

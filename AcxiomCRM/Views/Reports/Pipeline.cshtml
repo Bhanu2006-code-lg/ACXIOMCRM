@@ -1,0 +1,155 @@
+@model List<AcxiomCRM.Models.Opportunity>
+@{ ViewData["Title"] = "Sales Pipeline Report"; }
+
+<div class="page-header">
+    <div>
+        <h4><i class="bi bi-graph-up-arrow me-2"></i>Sales Pipeline Report</h4>
+        <span class="text-muted small">Stage-wise and owner-wise pipeline analysis</span>
+    </div>
+    <a asp-action="Index" class="btn btn-outline-secondary"><i class="bi bi-arrow-left me-1"></i>Back to Reports</a>
+</div>
+
+<!-- Summary Cards -->
+<div class="row g-3 mb-4">
+    <div class="col-md-3">
+        <div class="card bg-primary text-white">
+            <div class="card-body">
+                <h3 class="mb-0">@Model.Count</h3>
+                <small>Open Opportunities</small>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card bg-success text-white">
+            <div class="card-body">
+                <h3 class="mb-0">₹@Model.Sum(o => o.Amount).ToString("N0")</h3>
+                <small>Total Pipeline Value</small>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card bg-info text-white">
+            <div class="card-body">
+                <h3 class="mb-0">₹@Model.Sum(o => o.WeightedAmount).ToString("N0")</h3>
+                <small>Weighted Pipeline Value</small>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card bg-warning text-dark">
+            <div class="card-body">
+                <h3 class="mb-0">@(Model.Any() ? Model.Average(o => o.Amount).ToString("N0") : "0")</h3>
+                <small>Average Deal Size (₹)</small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Stage-Wise Pipeline -->
+<div class="card mb-4">
+    <div class="card-header">
+        <h5 class="mb-0"><i class="bi bi-layers me-2"></i>Pipeline by Stage</h5>
+    </div>
+    <div class="card-body">
+        @if (ViewBag.ByStage != null && ((IEnumerable<dynamic>)ViewBag.ByStage).Any())
+        {
+            <div class="table-responsive">
+                <table class="table table-hover align-middle">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Stage</th>
+                            <th class="text-center">Count</th>
+                            <th class="text-end">Total Amount</th>
+                            <th class="text-end">Weighted Amount</th>
+                            <th style="width: 30%;">Pipeline Distribution</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            var totalAmount = Model.Sum(o => o.Amount);
+                        }
+                        @foreach (var item in ViewBag.ByStage)
+                        {
+                            var percentage = totalAmount > 0 ? (double)item.Total / (double)totalAmount * 100 : 0;
+                            <tr>
+                                <td><strong>@item.Stage</strong></td>
+                                <td class="text-center"><span class="badge bg-primary">@item.Count</span></td>
+                                <td class="text-end"><strong>₹@((decimal)item.Total).ToString("N0")</strong></td>
+                                <td class="text-end text-success"><strong>₹@((decimal)item.Weighted).ToString("N0")</strong></td>
+                                <td>
+                                    <div class="progress" style="height: 24px;">
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: @percentage.ToString("F1")%">
+                                            @percentage.ToString("F1")%
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                    <tfoot class="table-light">
+                        <tr>
+                            <td><strong>Total</strong></td>
+                            <td class="text-center"><strong>@Model.Count</strong></td>
+                            <td class="text-end"><strong>₹@Model.Sum(o => o.Amount).ToString("N0")</strong></td>
+                            <td class="text-end text-success"><strong>₹@Model.Sum(o => o.WeightedAmount).ToString("N0")</strong></td>
+                            <td></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        }
+        else
+        {
+            <p class="text-muted text-center py-4">No pipeline data available by stage.</p>
+        }
+    </div>
+</div>
+
+<!-- Owner-Wise Pipeline -->
+<div class="card">
+    <div class="card-header">
+        <h5 class="mb-0"><i class="bi bi-people me-2"></i>Pipeline by Owner</h5>
+    </div>
+    <div class="card-body">
+        @if (ViewBag.ByOwner != null && ((IEnumerable<dynamic>)ViewBag.ByOwner).Any())
+        {
+            <div class="table-responsive">
+                <table class="table table-hover align-middle">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Owner</th>
+                            <th class="text-center">Count</th>
+                            <th class="text-end">Total Amount</th>
+                            <th style="width: 30%;">Pipeline Distribution</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            var totalAmountByOwner = Model.Sum(o => o.Amount);
+                        }
+                        @foreach (var item in ViewBag.ByOwner)
+                        {
+                            var percentage = totalAmountByOwner > 0 ? (double)item.Total / (double)totalAmountByOwner * 100 : 0;
+                            <tr>
+                                <td><i class="bi bi-person-circle me-2"></i><strong>@item.Owner</strong></td>
+                                <td class="text-center"><span class="badge bg-info">@item.Count</span></td>
+                                <td class="text-end"><strong>₹@((decimal)item.Total).ToString("N0")</strong></td>
+                                <td>
+                                    <div class="progress" style="height: 24px;">
+                                        <div class="progress-bar bg-info" role="progressbar" style="width: @percentage.ToString("F1")%">
+                                            @percentage.ToString("F1")%
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+        else
+        {
+            <p class="text-muted text-center py-4">No pipeline data available by owner.</p>
+        }
+    </div>
+</div>

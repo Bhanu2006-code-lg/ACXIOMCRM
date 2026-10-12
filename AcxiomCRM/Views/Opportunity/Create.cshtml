@@ -1,0 +1,122 @@
+@model AcxiomCRM.Models.Opportunity
+@{ ViewData["Title"] = "Create Opportunity"; }
+
+<div class="page-header">
+    <h4><i class="bi bi-trophy me-2"></i>Create New Opportunity</h4>
+    <a asp-action="Index" class="btn btn-outline-secondary"><i class="bi bi-arrow-left me-1"></i>Back to List</a>
+</div>
+
+<div class="row">
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-body">
+                <form asp-action="Create" method="post">
+                    <div class="row g-3">
+                        <!-- Opportunity Name -->
+                        <div class="col-md-6">
+                            <label asp-for="OpportunityName" class="form-label required">Opportunity Name</label>
+                            <input asp-for="OpportunityName" class="form-control" placeholder="e.g., Software License Renewal" />
+                            <span asp-validation-for="OpportunityName" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Customer -->
+                        <div class="col-md-6">
+                            <label for="CustomerId" class="form-label">Customer</label>
+                            <select asp-for="CustomerId" class="form-select" asp-items="ViewBag.Customers">
+                                <option value="">-- Select Customer (Optional) --</option>
+                            </select>
+                            <span asp-validation-for="CustomerId" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Lead -->
+                        <div class="col-md-6">
+                            <label for="LeadId" class="form-label">Lead</label>
+                            <select asp-for="LeadId" class="form-select" asp-items="ViewBag.Leads">
+                                <option value="">-- Select Lead (Optional) --</option>
+                            </select>
+                            <span asp-validation-for="LeadId" class="text-danger small"></span>
+                            <small class="text-muted">Link to qualified lead if applicable</small>
+                        </div>
+
+                        <!-- Assigned To -->
+                        <div class="col-md-6">
+                            <label for="AssignedTo" class="form-label">Assign To</label>
+                            <select asp-for="AssignedTo" class="form-select" asp-items="ViewBag.Users">
+                                <option value="">-- Select Sales Executive --</option>
+                            </select>
+                            <span asp-validation-for="AssignedTo" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Stage -->
+                        <div class="col-md-4">
+                            <label asp-for="Stage" class="form-label required">Stage</label>
+                            <select asp-for="Stage" class="form-select" asp-items="ViewBag.Stages"></select>
+                            <span asp-validation-for="Stage" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Amount -->
+                        <div class="col-md-4">
+                            <label asp-for="Amount" class="form-label required">Amount (₹)</label>
+                            <input asp-for="Amount" type="number" step="0.01" min="0.01" class="form-control" placeholder="e.g., 500000" />
+                            <span asp-validation-for="Amount" class="text-danger small"></span>
+                            <small class="text-muted">Must be greater than 0</small>
+                        </div>
+
+                        <!-- Probability -->
+                        <div class="col-md-4">
+                            <label asp-for="Probability" class="form-label required">Probability (%)</label>
+                            <input asp-for="Probability" type="number" min="0" max="100" class="form-control" placeholder="e.g., 75" />
+                            <span asp-validation-for="Probability" class="text-danger small"></span>
+                            <small class="text-muted">0-100%</small>
+                        </div>
+
+                        <!-- Expected Close Date -->
+                        <div class="col-md-6">
+                            <label asp-for="ExpectedCloseDate" class="form-label required">Expected Close Date</label>
+                            <input asp-for="ExpectedCloseDate" type="date" class="form-control" />
+                            <span asp-validation-for="ExpectedCloseDate" class="text-danger small"></span>
+                            <small class="text-muted">Cannot be in the past</small>
+                        </div>
+
+                        <!-- Status (hidden, defaults to Open) -->
+                        <input asp-for="Status" type="hidden" value="Open" />
+
+                        <!-- Notes -->
+                        <div class="col-12">
+                            <label asp-for="Notes" class="form-label">Notes</label>
+                            <textarea asp-for="Notes" class="form-control" rows="4" placeholder="Additional details, requirements, or context..."></textarea>
+                            <span asp-validation-for="Notes" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Actions -->
+                        <div class="col-12 d-flex gap-2">
+                            <button type="submit" class="btn btn-primary px-4">
+                                <i class="bi bi-check-circle me-1"></i>Create Opportunity
+                            </button>
+                            <a asp-action="Index" class="btn btn-outline-secondary">Cancel</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <div class="card bg-light">
+            <div class="card-body">
+                <h6 class="fw-bold mb-3"><i class="bi bi-info-circle me-2"></i>Opportunity Guidelines</h6>
+                <ul class="small mb-0">
+                    <li class="mb-2"><strong>Amount:</strong> Must be greater than 0</li>
+                    <li class="mb-2"><strong>Probability:</strong> Enter value between 0-100%</li>
+                    <li class="mb-2"><strong>Expected Close Date:</strong> Cannot be in the past for active opportunities</li>
+                    <li class="mb-2"><strong>Stage:</strong> Tracks progress through sales pipeline</li>
+                    <li class="mb-2"><strong>Weighted Amount:</strong> Calculated as Amount × Probability ÷ 100</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

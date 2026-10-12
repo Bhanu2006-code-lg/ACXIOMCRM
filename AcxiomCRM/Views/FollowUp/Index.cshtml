@@ -1,0 +1,205 @@
+@model List<AcxiomCRM.Models.FollowUp>
+@{ ViewData["Title"] = "Follow-Ups"; }
+
+<div class="page-header">
+    <div>
+        <h4><i class="bi bi-calendar-check me-2"></i>Follow-Ups</h4>
+        <span class="text-muted small">Schedule and track customer follow-ups</span>
+    </div>
+    <a asp-action="Create" class="btn btn-primary"><i class="bi bi-plus-circle me-1"></i>Schedule Follow-Up</a>
+</div>
+
+<!-- Alert for Overdue -->
+@if (ViewBag.OverdueCount > 0)
+{
+    <div class="alert alert-warning alert-dismissible fade show">
+        <i class="bi bi-exclamation-triangle me-2"></i>
+        <strong>@ViewBag.OverdueCount overdue follow-up(s)</strong> require your attention!
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+}
+
+<!-- Filter -->
+<div class="card mb-3">
+    <div class="card-body">
+        <form method="get" class="row g-3">
+            <div class="col-md-4">
+                <label class="form-label small">Status</label>
+                <select name="status" class="form-select">
+                    <option value="">All Status</option>
+                    <option value="Planned" selected="@(ViewBag.Status == "Planned")">Planned</option>
+                    <option value="Completed" selected="@(ViewBag.Status == "Completed")">Completed</option>
+                    <option value="Missed" selected="@(ViewBag.Status == "Missed")">Missed</option>
+                    <option value="Cancelled" selected="@(ViewBag.Status == "Cancelled")">Cancelled</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label class="form-label small">Date</label>
+                <input type="date" name="date" class="form-control" />
+            </div>
+            <div class="col-md-2">
+                <label class="form-label small">&nbsp;</label>
+                <button type="submit" class="btn btn-secondary w-100"><i class="bi bi-search me-1"></i>Filter</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show">
+        <i class="bi bi-check-circle me-2"></i>@TempData["Success"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+}
+
+<!-- Follow-Ups List -->
+<div class="card">
+    <div class="card-body">
+        @if (Model.Any())
+        {
+            <div class="table-responsive">
+                <table class="table table-hover align-middle">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Subject</th>
+                            <th>Type</th>
+                            <th>Related To</th>
+                            <th>Assigned To</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var fu in Model)
+                        {
+                            var isOverdue = fu.Status == "Planned" && fu.FollowUpDate < DateTime.Today;
+                            var isDueToday = fu.Status == "Planned" && fu.FollowUpDate.Date == DateTime.Today;
+                            var rowClass = isOverdue ? "table-danger" : isDueToday ? "table-warning" : "";
+
+                            <tr class="@rowClass">
+                                <td>
+                                    <strong>@fu.FollowUpDate.ToString("dd MMM yyyy")</strong>
+                                    @if (isOverdue)
+                                    {
+                                        <br /><span class="badge bg-danger">Overdue</span>
+                                    }
+                                    else if (isDueToday)
+                                    {
+                                        <br /><span class="badge bg-warning text-dark">Due Today</span>
+                                    }
+                                </td>
+                                <td>
+                                    <strong>@fu.Subject</strong>
+                                    @if (!string.IsNullOrWhiteSpace(fu.Remarks))
+                                    {
+                                        <br /><small class="text-muted">@(fu.Remarks.Length > 50 ? fu.Remarks.Substring(0, 50) + "..." : fu.Remarks)</small>
+                                    }
+                                </td>
+                                <td>
+                                    @{
+                                        var typeIcon = fu.FollowUpType switch
+                                        {
+                                            "Call" => "bi-telephone",
+                                            "Email" => "bi-envelope",
+                                            "Meeting" => "bi-people",
+                                            "Visit" => "bi-geo-alt",
+                                            _ => "bi-calendar"
+                                        };
+                                    }
+                                    <i class="bi @typeIcon me-1"></i>@fu.FollowUpType
+                                </td>
+                                <td>
+                                    @if (fu.Customer != null)
+                                    {
+                                        <a asp-controller="Customer" asp-action="Details" asp-route-id="@fu.CustomerId">
+                                            <i class="bi bi-person me-1"></i>@fu.Customer.CustomerName
+                                        </a>
+                                    }
+                                    else if (fu.Lead != null)
+                                    {
+                                        <a asp-controller="Lead" asp-action="Details" asp-route-id="@fu.LeadId">
+                                            <i class="bi bi-funnel me-1"></i>@fu.Lead.LeadName
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <span class="text-muted">Not linked</span>
+                                    }
+                                </td>
+                                <td><small>@(fu.AssignedUser?.FullName ?? "Unassigned")</small></td>
+                                <td>
+                                    @{
+                                        var statusBadge = fu.Status switch
+                                        {
+                                            "Planned" => "badge bg-primary",
+                                            "Completed" => "badge bg-success",
+                                            "Missed" => "badge bg-danger",
+                                            "Cancelled" => "badge bg-secondary",
+                                            _ => "badge bg-secondary"
+                                        };
+                                    }
+                                    <span class="@statusBadge">@fu.Status</span>
+                                </td>
+                                <td>
+                                    <div class="btn-group btn-group-sm">
+                                        <a asp-action="Edit" asp-route-id="@fu.FollowUpId" class="btn btn-outline-secondary" title="Edit">
+                                            <i class="bi bi-pencil"></i>
+                                        </a>
+                                        @if (fu.Status == "Planned")
+                                        {
+                                            <form asp-action="Complete" asp-route-id="@fu.FollowUpId" method="post" class="d-inline">
+                                                <button type="submit" class="btn btn-outline-success" title="Mark Completed">
+                                                    <i class="bi bi-check-circle"></i>
+                                                </button>
+                                            </form>
+                                        }
+                                        @if (User.IsInRole("Admin") || User.IsInRole("Manager"))
+                                        {
+                                            <form asp-action="Delete" asp-route-id="@fu.FollowUpId" method="post" class="d-inline"
+                                                  onsubmit="return confirm('Cancel this follow-up?');">
+                                                <button type="submit" class="btn btn-outline-danger" title="Cancel">
+                                                    <i class="bi bi-x-circle"></i>
+                                                </button>
+                                            </form>
+                                        }
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="mt-3 p-3 bg-light rounded">
+                <div class="row text-center">
+                    <div class="col-md-3">
+                        <h5 class="text-primary">@Model.Count(f => f.Status == "Planned")</h5>
+                        <small class="text-muted">Planned</small>
+                    </div>
+                    <div class="col-md-3">
+                        <h5 class="text-danger">@Model.Count(f => f.Status == "Planned" && f.FollowUpDate < DateTime.Today)</h5>
+                        <small class="text-muted">Overdue</small>
+                    </div>
+                    <div class="col-md-3">
+                        <h5 class="text-warning">@Model.Count(f => f.Status == "Planned" && f.FollowUpDate.Date == DateTime.Today)</h5>
+                        <small class="text-muted">Due Today</small>
+                    </div>
+                    <div class="col-md-3">
+                        <h5 class="text-success">@Model.Count(f => f.Status == "Completed")</h5>
+                        <small class="text-muted">Completed</small>
+                    </div>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="text-center py-5">
+                <i class="bi bi-calendar-check text-muted" style="font-size: 4rem;"></i>
+                <p class="text-muted mt-3">No follow-ups found. Schedule your first follow-up!</p>
+                <a asp-action="Create" class="btn btn-primary"><i class="bi bi-plus-circle me-1"></i>Schedule Follow-Up</a>
+            </div>
+        }
+    </div>
+</div>

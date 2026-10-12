@@ -1,0 +1,182 @@
+@model List<AcxiomCRM.Models.Activity>
+@{ ViewData["Title"] = "Activities"; }
+
+<div class="page-header">
+    <div>
+        <h4><i class="bi bi-journal-text me-2"></i>Activities</h4>
+        <span class="text-muted small">Track customer interactions and activities</span>
+    </div>
+    <a asp-action="Create" class="btn btn-primary"><i class="bi bi-plus-circle me-1"></i>Log Activity</a>
+</div>
+
+<!-- Filter -->
+<div class="card mb-3">
+    <div class="card-body">
+        <form method="get" class="row g-3">
+            <div class="col-md-4">
+                <label class="form-label small">Activity Type</label>
+                <select name="type" class="form-select">
+                    <option value="">All Types</option>
+                    <option value="Call" selected="@(ViewBag.Type == "Call")">Call</option>
+                    <option value="Meeting" selected="@(ViewBag.Type == "Meeting")">Meeting</option>
+                    <option value="Email" selected="@(ViewBag.Type == "Email")">Email</option>
+                    <option value="Task" selected="@(ViewBag.Type == "Task")">Task</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label class="form-label small">Status</label>
+                <select name="status" class="form-select">
+                    <option value="">All Status</option>
+                    <option value="Planned" selected="@(ViewBag.Status == "Planned")">Planned</option>
+                    <option value="Completed" selected="@(ViewBag.Status == "Completed")">Completed</option>
+                    <option value="Cancelled" selected="@(ViewBag.Status == "Cancelled")">Cancelled</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <label class="form-label small">&nbsp;</label>
+                <button type="submit" class="btn btn-secondary w-100"><i class="bi bi-search me-1"></i>Filter</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show">
+        <i class="bi bi-check-circle me-2"></i>@TempData["Success"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+}
+
+<!-- Activities List -->
+<div class="card">
+    <div class="card-body">
+        @if (Model.Any())
+        {
+            <div class="table-responsive">
+                <table class="table table-hover align-middle">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Type</th>
+                            <th>Subject</th>
+                            <th>Description</th>
+                            <th>Related To</th>
+                            <th>Assigned To</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var activity in Model)
+                        {
+                            <tr>
+                                <td><small>@activity.ActivityDate.ToString("dd MMM yyyy")</small></td>
+                                <td>
+                                    @{
+                                        var typeIcon = activity.ActivityType switch
+                                        {
+                                            "Call" => "bi-telephone text-primary",
+                                            "Meeting" => "bi-people text-success",
+                                            "Email" => "bi-envelope text-info",
+                                            "Task" => "bi-check-square text-warning",
+                                            _ => "bi-journal text-secondary"
+                                        };
+                                    }
+                                    <i class="bi @typeIcon me-1"></i>@activity.ActivityType
+                                </td>
+                                <td><strong>@activity.Subject</strong></td>
+                                <td>
+                                    @if (!string.IsNullOrWhiteSpace(activity.Description))
+                                    {
+                                        <small class="text-muted">@(activity.Description.Length > 60 ? activity.Description.Substring(0, 60) + "..." : activity.Description)</small>
+                                    }
+                                    else
+                                    {
+                                        <span class="text-muted">-</span>
+                                    }
+                                </td>
+                                <td>
+                                    @if (activity.Customer != null)
+                                    {
+                                        <a asp-controller="Customer" asp-action="Details" asp-route-id="@activity.CustomerId">
+                                            <i class="bi bi-person me-1"></i>@activity.Customer.CustomerName
+                                        </a>
+                                    }
+                                    else if (activity.Lead != null)
+                                    {
+                                        <a asp-controller="Lead" asp-action="Details" asp-route-id="@activity.LeadId">
+                                            <i class="bi bi-funnel me-1"></i>@activity.Lead.LeadName
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <span class="text-muted">Not linked</span>
+                                    }
+                                </td>
+                                <td><small>@(activity.AssignedUser?.FullName ?? "Unassigned")</small></td>
+                                <td>
+                                    @{
+                                        var statusBadge = activity.Status switch
+                                        {
+                                            "Planned" => "badge bg-primary",
+                                            "Completed" => "badge bg-success",
+                                            "Cancelled" => "badge bg-secondary",
+                                            _ => "badge bg-secondary"
+                                        };
+                                    }
+                                    <span class="@statusBadge">@activity.Status</span>
+                                </td>
+                                <td>
+                                    <div class="btn-group btn-group-sm">
+                                        <a asp-action="Edit" asp-route-id="@activity.ActivityId" class="btn btn-outline-secondary" title="Edit">
+                                            <i class="bi bi-pencil"></i>
+                                        </a>
+                                        @if (User.IsInRole("Admin") || User.IsInRole("Manager"))
+                                        {
+                                            <form asp-action="Delete" asp-route-id="@activity.ActivityId" method="post" class="d-inline"
+                                                  onsubmit="return confirm('Delete this activity?');">
+                                                <button type="submit" class="btn btn-outline-danger" title="Delete">
+                                                    <i class="bi bi-trash"></i>
+                                                </button>
+                                            </form>
+                                        }
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="mt-3 p-3 bg-light rounded">
+                <div class="row text-center">
+                    <div class="col-md-3">
+                        <h5 class="text-primary">@Model.Count(a => a.ActivityType == "Call")</h5>
+                        <small class="text-muted">Calls</small>
+                    </div>
+                    <div class="col-md-3">
+                        <h5 class="text-success">@Model.Count(a => a.ActivityType == "Meeting")</h5>
+                        <small class="text-muted">Meetings</small>
+                    </div>
+                    <div class="col-md-3">
+                        <h5 class="text-info">@Model.Count(a => a.ActivityType == "Email")</h5>
+                        <small class="text-muted">Emails</small>
+                    </div>
+                    <div class="col-md-3">
+                        <h5 class="text-warning">@Model.Count(a => a.Status == "Completed")</h5>
+                        <small class="text-muted">Completed</small>
+                    </div>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="text-center py-5">
+                <i class="bi bi-journal-text text-muted" style="font-size: 4rem;"></i>
+                <p class="text-muted mt-3">No activities found. Log your first activity!</p>
+                <a asp-action="Create" class="btn btn-primary"><i class="bi bi-plus-circle me-1"></i>Log Activity</a>
+            </div>
+        }
+    </div>
+</div>

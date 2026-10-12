@@ -1,0 +1,159 @@
+@model List<AcxiomCRM.Models.Lead>
+@{ ViewData["Title"] = "Lead Report"; }
+
+<div class="page-header">
+    <div>
+        <h4><i class="bi bi-funnel me-2"></i>Lead Report</h4>
+        <span class="text-muted small">Lead analysis by source, status, and conversion</span>
+    </div>
+    <a asp-action="Index" class="btn btn-outline-secondary"><i class="bi bi-arrow-left me-1"></i>Back to Reports</a>
+</div>
+
+<!-- Filters -->
+<div class="card mb-3">
+    <div class="card-body">
+        <form method="get" class="row g-3">
+            <div class="col-md-4">
+                <label class="form-label small">Status</label>
+                <select name="status" class="form-select">
+                    <option value="">All Status</option>
+                    <option value="New" selected="@(ViewBag.Status == "New")">New</option>
+                    <option value="Contacted" selected="@(ViewBag.Status == "Contacted")">Contacted</option>
+                    <option value="Qualified" selected="@(ViewBag.Status == "Qualified")">Qualified</option>
+                    <option value="Unqualified" selected="@(ViewBag.Status == "Unqualified")">Unqualified</option>
+                    <option value="Converted" selected="@(ViewBag.Status == "Converted")">Converted</option>
+                    <option value="Lost" selected="@(ViewBag.Status == "Lost")">Lost</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label class="form-label small">Source</label>
+                <select name="source" class="form-select">
+                    <option value="">All Sources</option>
+                    <option value="Website" selected="@(ViewBag.Source == "Website")">Website</option>
+                    <option value="Referral" selected="@(ViewBag.Source == "Referral")">Referral</option>
+                    <option value="Cold Call" selected="@(ViewBag.Source == "Cold Call")">Cold Call</option>
+                    <option value="Email" selected="@(ViewBag.Source == "Email")">Email</option>
+                    <option value="Social Media" selected="@(ViewBag.Source == "Social Media")">Social Media</option>
+                    <option value="Other" selected="@(ViewBag.Source == "Other")">Other</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label class="form-label small">&nbsp;</label>
+                <button type="submit" class="btn btn-secondary w-100"><i class="bi bi-filter me-1"></i>Filter</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Report Table -->
+<div class="card">
+    <div class="card-body">
+        @if (Model.Any())
+        {
+            <div class="table-responsive">
+                <table class="table table-striped table-hover align-middle">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Lead Code</th>
+                            <th>Lead Name</th>
+                            <th>Company</th>
+                            <th>Source</th>
+                            <th>Status</th>
+                            <th>Priority</th>
+                            <th>Expected Value</th>
+                            <th>Owner</th>
+                            <th>Created Date</th>
+                            <th>Converted</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var lead in Model)
+                        {
+                            <tr>
+                                <td><code>@lead.LeadCode</code></td>
+                                <td><strong>@lead.LeadName</strong></td>
+                                <td>@(lead.CompanyName ?? "-")</td>
+                                <td><small>@lead.Source</small></td>
+                                <td>
+                                    @{
+                                        var statusBadge = lead.Status switch
+                                        {
+                                            "New" => "badge bg-info",
+                                            "Contacted" => "badge bg-primary",
+                                            "Qualified" => "badge bg-success",
+                                            "Unqualified" => "badge bg-secondary",
+                                            "Converted" => "badge bg-success",
+                                            "Lost" => "badge bg-danger",
+                                            _ => "badge bg-secondary"
+                                        };
+                                    }
+                                    <span class="@statusBadge">@lead.Status</span>
+                                </td>
+                                <td>
+                                    @{
+                                        var priorityBadge = lead.Priority switch
+                                        {
+                                            "High" => "badge bg-danger",
+                                            "Medium" => "badge bg-warning text-dark",
+                                            "Low" => "badge bg-secondary",
+                                            _ => "badge bg-secondary"
+                                        };
+                                    }
+                                    <span class="@priorityBadge">@lead.Priority</span>
+                                </td>
+                                <td class="text-end">₹@lead.ExpectedValue.ToString("N0")</td>
+                                <td><small>@(lead.AssignedUser?.FullName ?? "Unassigned")</small></td>
+                                <td><small>@lead.CreatedDate.ToString("dd MMM yyyy")</small></td>
+                                <td class="text-center">
+                                    @if (lead.IsConverted)
+                                    {
+                                        <i class="bi bi-check-circle-fill text-success"></i>
+                                    }
+                                    else
+                                    {
+                                        <span class="text-muted">-</span>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="mt-3 p-3 bg-light rounded">
+                <div class="row text-center">
+                    <div class="col-md-2">
+                        <h5 class="text-primary">@Model.Count</h5>
+                        <small class="text-muted">Total Leads</small>
+                    </div>
+                    <div class="col-md-2">
+                        <h5 class="text-info">@Model.Count(l => l.Status == "New")</h5>
+                        <small class="text-muted">New</small>
+                    </div>
+                    <div class="col-md-2">
+                        <h5 class="text-warning">@Model.Count(l => l.Status == "Qualified")</h5>
+                        <small class="text-muted">Qualified</small>
+                    </div>
+                    <div class="col-md-2">
+                        <h5 class="text-success">@Model.Count(l => l.IsConverted)</h5>
+                        <small class="text-muted">Converted</small>
+                    </div>
+                    <div class="col-md-2">
+                        <h5 class="text-danger">@Model.Count(l => l.Status == "Lost")</h5>
+                        <small class="text-muted">Lost</small>
+                    </div>
+                    <div class="col-md-2">
+                        <h5 class="text-success">₹@Model.Sum(l => l.ExpectedValue).ToString("N0")</h5>
+                        <small class="text-muted">Total Value</small>
+                    </div>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="text-center py-5">
+                <p class="text-muted">No leads found for the selected criteria.</p>
+            </div>
+        }
+    </div>
+</div>

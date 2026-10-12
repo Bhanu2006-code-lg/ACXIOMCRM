@@ -1,0 +1,168 @@
+@model List<AcxiomCRM.Models.Lead>
+@{ ViewData["Title"] = "Conversion Report"; }
+
+<div class="page-header">
+    <div>
+        <h4><i class="bi bi-arrow-repeat me-2"></i>Lead Conversion Report</h4>
+        <span class="text-muted small">Lead conversion rates and sales effectiveness</span>
+    </div>
+    <a asp-action="Index" class="btn btn-outline-secondary"><i class="bi bi-arrow-left me-1"></i>Back to Reports</a>
+</div>
+
+<!-- Summary Cards -->
+<div class="row g-3 mb-4">
+    <div class="col-md-3">
+        <div class="card bg-primary text-white">
+            <div class="card-body text-center">
+                <h2 class="mb-0">@ViewBag.Total</h2>
+                <small>Total Leads</small>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card bg-success text-white">
+            <div class="card-body text-center">
+                <h2 class="mb-0">@ViewBag.Converted</h2>
+                <small>Converted to Customers</small>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card bg-danger text-white">
+            <div class="card-body text-center">
+                <h2 class="mb-0">@ViewBag.Lost</h2>
+                <small>Lost Leads</small>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card bg-info text-white">
+            <div class="card-body text-center">
+                <h2 class="mb-0">@ViewBag.ConversionRate.ToString("F1")%</h2>
+                <small>Conversion Rate</small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Conversion Funnel Visualization -->
+<div class="card mb-4">
+    <div class="card-header">
+        <h5 class="mb-0"><i class="bi bi-funnel me-2"></i>Conversion Funnel</h5>
+    </div>
+    <div class="card-body">
+        <div class="funnel-chart">
+            @{
+                var total = ViewBag.Total;
+                var converted = ViewBag.Converted;
+                var lost = ViewBag.Lost;
+                var open = ViewBag.Open;
+            }
+
+            <div class="funnel-stage" style="width: 100%; background: #0d6efd;">
+                <div class="funnel-label">
+                    <strong>Total Leads</strong>
+                    <span>@total</span>
+                </div>
+            </div>
+
+            <div class="funnel-stage" style="width: @((open + converted) * 100.0 / Math.Max(total, 1))%; background: #ffc107;">
+                <div class="funnel-label">
+                    <strong>Active Pipeline</strong>
+                    <span>@(open + converted) (@(((open + converted) * 100.0 / Math.Max(total, 1)).ToString("F1"))%)</span>
+                </div>
+            </div>
+
+            <div class="funnel-stage" style="width: @(converted * 100.0 / Math.Max(total, 1))%; background: #198754;">
+                <div class="funnel-label">
+                    <strong>Converted</strong>
+                    <span>@converted (@ViewBag.ConversionRate.ToString("F1")%)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Detailed Breakdown -->
+<div class="card">
+    <div class="card-header">
+        <h5 class="mb-0"><i class="bi bi-pie-chart me-2"></i>Status Breakdown</h5>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th>Status</th>
+                        <th class="text-center">Count</th>
+                        <th class="text-end">Percentage</th>
+                        <th style="width: 40%;">Distribution</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        var statuses = Model.GroupBy(l => l.Status)
+                            .Select(g => new { Status = g.Key, Count = g.Count() })
+                            .OrderByDescending(x => x.Count);
+                    }
+                    @foreach (var status in statuses)
+                    {
+                        var percentage = total > 0 ? status.Count * 100.0 / total : 0;
+                        var badgeClass = status.Status switch
+                        {
+                            "Converted" => "bg-success",
+                            "Qualified" => "bg-warning",
+                            "Contacted" => "bg-primary",
+                            "New" => "bg-info",
+                            "Lost" => "bg-danger",
+                            _ => "bg-secondary"
+                        };
+
+                        <tr>
+                            <td><span class="badge @badgeClass">@status.Status</span></td>
+                            <td class="text-center"><strong>@status.Count</strong></td>
+                            <td class="text-end"><strong>@percentage.ToString("F1")%</strong></td>
+                            <td>
+                                <div class="progress" style="height: 24px;">
+                                    <div class="progress-bar @badgeClass" role="progressbar" style="width: @percentage%">
+                                        @percentage.ToString("F1")%
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<style>
+    .funnel-chart {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        padding: 20px 0;
+    }
+    .funnel-stage {
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+    }
+    .funnel-stage:hover {
+        transform: scale(1.02);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .funnel-label {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+    }
+</style>
