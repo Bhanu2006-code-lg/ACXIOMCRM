@@ -1,0 +1,27 @@
+## .NET
+bin/
+obj/
+*.user
+*.suo
+.vs/
+
+## SQLite DB files (don't push database)
+*.db
+*.db-shm
+*.db-wal
+
+## Logs & temp files
+*.log
+*.txt
+!README.txt
+
+## Secrets
+appsettings.Development.json
+secrets.json
+
+## OS
+.DS_Store
+Thumbs.db
+
+## cookies
+cookies.txt

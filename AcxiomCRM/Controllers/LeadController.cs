@@ -1,4 +1,4 @@
-using AcxiomCRM.Data;
+﻿using AcxiomCRM.Data;
 using AcxiomCRM.Models;
 using AcxiomCRM.Services;
 using Microsoft.AspNetCore.Authorization;
@@ -211,7 +211,11 @@ public class LeadController : Controller
 
     private async Task LoadDropdowns()
     {
-        var salesUsers = await _users.GetUsersInRoleAsync("SalesExecutive");
+        var salesRole = await _db.Roles.FirstOrDefaultAsync(r => r.Name == "SalesExecutive");
+        var salesUsers = salesRole == null ? new List<AppUser>() :
+            await _db.Users.Where(u => _db.UserRoles
+                .Where(ur => ur.RoleId == salesRole.Id)
+                .Select(ur => ur.UserId).Contains(u.Id) && u.IsActive).ToListAsync();
         ViewBag.Users = new SelectList(salesUsers, "Id", "FullName");
         ViewBag.Sources = new SelectList(new[] { "Website", "Referral", "Cold Call", "Email", "Social Media", "Other" });
         ViewBag.Statuses = new SelectList(new[] { "New", "Contacted", "Qualified", "Unqualified", "Converted", "Lost" });
